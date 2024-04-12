@@ -1,6 +1,1 @@
-# Scripts to ignore
-macosEHSPOCEnvironmentSetup.sh
-FinishReview.sh
-
-# In case this folder is also backed up in Google drive
-.tmp.driveupload/
+*
