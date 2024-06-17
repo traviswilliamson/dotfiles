@@ -1,0 +1,42 @@
+[user]
+	name = Travis Williamson
+	email = twilliamson@capsher.com
+[core]
+	excludesfile = /Users/twilliamson/.gitignore_global
+	autocrlf = true
+	editor = code --wait
+[diff]
+	tool = bc4
+[difftool]
+	prompt = false
+[difftool "bc4"]
+	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\"
+	path = -ro
+	trustExitCode = true
+[merge]
+	tool = bc4
+[mergetool]
+	prompt = false
+[mergetool "bc4"]
+	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/twilliamson/.stCommitMsg
+[init]
+	defaultBranch = main
+[push]
+	default = current
+	autoSetupRemote = true
+[color]
+	ui = auto
+[color "branch"]
+    current = green reverse
+    local = green
+    remote = magenta
+[color "status"]
+	added = green
+    changed = yellow
+    untracked = normal red
+	unmerged = normal yellow
+[pull]
+	rebase = true
