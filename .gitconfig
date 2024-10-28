@@ -40,3 +40,5 @@
 	unmerged = normal yellow
 [pull]
 	rebase = true
+[safe]
+	directory = C:/Users/twilliamson
