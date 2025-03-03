@@ -22,6 +22,8 @@
 	trustExitCode = true
 [commit]
 	template = /Users/twilliamson/.stCommitMsg
+[alias]
+    continue = "-c core.editor=true rebase --continue"
 [init]
 	defaultBranch = main
 [push]
