@@ -2,11 +2,15 @@
 	name = Travis Williamson
 	email = twilliamson@capsher.com
 [core]
-	excludesfile = /Users/twilliamson/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	autocrlf = true
 	editor = code --wait
 [diff]
 	tool = bc4
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [difftool]
 	prompt = false
 [difftool "bc4"]
@@ -15,13 +19,16 @@
 	trustExitCode = true
 [merge]
 	tool = bc4
+	autoStash = true
+	conflictstyle = zdiff3
 [mergetool]
 	prompt = false
 [mergetool "bc4"]
 	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/twilliamson/.stCommitMsg
+	template = ~/.stCommitMsg
+	verbose = true
 [alias]
     continue = "-c core.editor=true rebase --continue"
 [init]
@@ -29,6 +36,11 @@
 [push]
 	default = current
 	autoSetupRemote = true
+	followTags = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 [color]
 	ui = auto
 [color "branch"]
@@ -44,3 +56,18 @@
 	rebase = true
 [safe]
 	directory = C:/Users/twilliamson
+[column]
+    ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[help]
+	autocorrect = prompt
+[rerere]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
