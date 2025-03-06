@@ -31,6 +31,7 @@
 	verbose = true
 [alias]
     continue = "-c core.editor=true rebase --continue"
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [init]
 	defaultBranch = main
 [push]
@@ -68,6 +69,5 @@
 	autoSquash = true
 	autoStash = true
 	updateRefs = true
-[rerere]
 	enabled = true
 	autoupdate = true
