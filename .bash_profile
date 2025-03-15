@@ -1,6 +1,3 @@
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/twilliamson/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 PROMPT_COMMAND='history -a'
 alias daily="git add :; git commit -m \"Daily commit\"; git push"
 alias killorig="find . -type f -name '*.orig' -delete"
