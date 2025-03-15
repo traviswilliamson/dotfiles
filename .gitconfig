@@ -2,36 +2,23 @@
 	name = Travis Williamson
 	email = travis.m.williamson@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
 	autocrlf = true
 	editor = code --wait
+	excludesFile = '~/.gitignore_global'
 [diff]
 	tool = bc4
 	algorithm = histogram
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
-[difftool]
-	prompt = false
-[difftool "bc4"]
-	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\"
-	path = -ro
-	trustExitCode = true
-[merge]
-	tool = bc4
-	autoStash = true
-	conflictstyle = zdiff3
-[mergetool]
-	prompt = false
-[mergetool "bc4"]
-	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
 [commit]
 	template = ~/.stCommitMsg
 	verbose = true
 [alias]
     continue = "-c core.editor=true rebase --continue"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[credential]
+	helper = C:/Users/travi/AppData/Local/Programs/Git\\ Credential\\ Manager/git-credential-manager-core.exe
 [init]
 	defaultBranch = main
 [push]
