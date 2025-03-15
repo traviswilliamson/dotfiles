@@ -1,6 +1,3 @@
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/twilliamson/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 PROMPT_COMMAND='history -a'
 alias ls="ls -a --color=auto"
 export LESS="$LESS -R --no-init --quit-if-one-screen"
