@@ -7,7 +7,7 @@ alias killorig="find . -type f -name '*.orig' -delete"
 alias ls="ls -a --color=auto"
 export LESS="$LESS -R --no-init --quit-if-one-screen"
 gohome() { gohome_temp_branch=$(git branch --show-current); git switch ${1-master}; git pull; git branch -D "${gohome_temp_branch}"; unset gohome_temp_branch; }
-source ~/repos/repos.bash
+source ~/scripts/repos/repos.bash
 eval "$(zoxide init bash)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
