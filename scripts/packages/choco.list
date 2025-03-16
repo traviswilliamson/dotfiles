@@ -1,15 +1,15 @@
 # Browsers
-googlechrome
-brave
+-y googlechrome
+-y brave
 # Dev tools
-vscode
-7zip.isntall
-powertoys
-bruno
-microsoft-windows-terminal
-winget
-rancher-desktop
+-y vscode
+-y 7zip.isntall
+-y powertoys
+-y bruno
+-y microsoft-windows-terminal
+-y winget
+-y rancher-desktop
 # Personal
-slack
-signal
-bitwarden
+-y slack
+-y signal
+-y bitwarden
