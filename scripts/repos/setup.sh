@@ -6,6 +6,8 @@ cd "$DIR"
 COMMENT=\#*
 REPO_PATH=$(realpath ~/repos)
 
+mkdir $REPO_PATH
+
 find * -name "*.list" | while read fn; do
     folder="${fn%.*}"
     mkdir -p "$REPO_PATH/$folder"
