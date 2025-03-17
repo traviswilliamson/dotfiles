@@ -2,7 +2,7 @@
 This repo exists to keep track of configuration files so that setting up a new machine is both simple and consistent. Most devs have spent a lot of time getting their global environment set up to their liking and building common scripts; by preserving the configuration, that work isn't lost when switching computers. For simplicity, this repo is designed to live in your home directory.
 
 ## Gitignore
-The magic of keeping this repo in your home directory is the `.gitignore`. Here it is: `*`.
+The magic of keeping this repo in your home directory is the `.gitignore`. Here it is: `*`. This way you can specifically add the dotfiles you find useful without dealing with symbolic links.
 
 Exception: Some applications keep their settings outside of the user home directory. In that case, symlinking may be necessary. Example: VSCode (If you are not using the built-in sync).
 
