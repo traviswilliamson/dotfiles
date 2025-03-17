@@ -1,0 +1,17 @@
+os() {
+    case $OSTYPE in
+        "linux-gnu"* | "freebsd"*)
+            echo "linux"
+            ;;
+        "darwin"*)
+            echo "macos"
+            ;;
+        "msys" | "cygwin" | "win32")
+            echo "windows"
+            ;;
+        *)
+            >&2 echo "unknown OS: $OSTYPE"
+            return 1
+            ;;
+    esac
+}

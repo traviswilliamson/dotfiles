@@ -1,0 +1,8 @@
+python
+--cask git-credential-manager-core
+--cask google-chrome
+--cask brave-browser
+--cask slack
+--cask discord
+--cask visual-studio-code
+--cask dotnet-sdk
