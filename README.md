@@ -15,6 +15,8 @@ To bootstrap a new machine:
 ### Packages
 Packages in `scripts/packages/*.list` files will be installed using the filename as the package manager. So, for example, `choco.list` containing `vscode` will run `choco install vscode`. Specific exceptions to including `install` exist, defined in the `scripts/packages/install.sh` file, such as for VSCode extensions.
 
+OS specific packages defined in `scripts/packages/$(os)/*.list` will only be installed on the given os.
+
 ### Repos
 Repos defined in `scripts/repos/*.list` will be cloned into `~/repos/$1/` folders, designed for separate contexts like `personal` and `work`. Helpful repository managing scripts are available in `scripts/repos/repos.bash` making use of this folder structure.
 
