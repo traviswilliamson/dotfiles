@@ -18,21 +18,21 @@ Packages in `scripts/packages/*.list` files will be installed using the filename
 ### Repos
 Repos defined in `scripts/repos/*.list` will be cloned into `~/repos/$1/` folders, designed for separate contexts like `personal` and `work`. Helpful repository managing scripts are available in `scripts/repos/repos.bash` making use of this folder structure.
 
+### Scripts
+All scripts matching `scripts/*.source` will be sourced by `.bash_profile`
+
 ## Branching
 Work and personal machines may want diverging environments. To this end, the scripts and common packages are kept on `main`, and specific packages and configrations live on `home` and `work`. Merge changes from `main` into other branches, and cherry-pick from others into `main` if there are changes to common elements.
 
 # Acknowledgements
 - [Drew DeVault](https://drewdevault.com/2019/12/30/dotfiles.html)'s method of turning the home directory into a repo
-- The [Windows boxstarter](TODO) example of good Windows configurations
+- The [Windows boxstarter](https://github.com/microsoft/windows-dev-box-setup-scripts) example of good Windows configurations
 - [Dotfiles](https://dotfiles.github.io/)'s collection of inspirations
 - [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)'s configuration options for macOS
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
 
 # TODO
 1. Something with credential management to make it easier to work on `main` with the environment specific credential management.
-2. In `.bash_profile`, source `.bashrc` (Or the other way around)
-3. Move macos setup into scripts/packages
-4. OS specific `sudo`
-5. OS specific packages
-6. OS specific bootstrap (Install package managers)
-7. Source all `*.bash` scripts in `scripts`
+1. OS specific `sudo`
+1. OS specific bootstrap (Install package managers)
+1. OS specific configs
