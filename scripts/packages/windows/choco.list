@@ -7,8 +7,9 @@
 -y powertoys
 -y bruno
 -y microsoft-windows-terminal
--y winget
 -y rancher-desktop
+-y firacode
+-y zoxide
 # Personal
 -y slack
 -y signal
