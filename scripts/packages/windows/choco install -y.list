@@ -4,12 +4,16 @@ brave
 # Dev tools
 vscode
 7zip.isntall
-powertoys
 bruno
-microsoft-windows-terminal
 rancher-desktop
-firacode
 zoxide
+beyondcompare
+# OS tools
+microsoft-windows-terminal
+firacode
+powertoys
+obs-studio
+filezilla
 # Personal
 slack
 signal
