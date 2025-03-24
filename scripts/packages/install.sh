@@ -7,8 +7,20 @@ source ~/scripts/os.source
 
 COMMENT=\#*
 
-# TODO: Bootstrap package managers by OS
-# Windows: choco
+# Bootstrap package managers by OS
+case $(os) in
+    "linux")
+        ;;
+    "macos"*)
+        # brew
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        ;;
+    "windows")
+        # choco
+        winget install --id chocolatey.chocolatey --source winget
+        choco upgrade chocolatey
+        ;;
+esac
 # macos: brew
 # macos: Something for brew taps, must run before brew, currently need
 # brew tap microsoft/git
@@ -22,12 +34,7 @@ COMMENT=\#*
         if [[ $package == $COMMENT ]];
         then continue
         fi
-        if [[ $cmd == code* ]]; then
-            echo "$cmd $package"
-            $cmd $package
-        else
-            echo "$cmd install $package"
-            $cmd install $package
-        fi
+        echo "$cmd $package"
+        $cmd $package
     done < "$fn"
 done
