@@ -1,2 +1,5 @@
---id=Microsoft.VisualStudio.2022.Professional  -e
 Neovim.Neovim
+--id=Microsoft.VisualStudio.2022.Professional -e
+Microsoft.devtunnel
+--exact --id Microsoft.AzureCLI
+--id WhatsApp.WhatsApp -e
