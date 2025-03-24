@@ -4,11 +4,16 @@ brave
 # Dev tools
 vscode
 7zip.isntall
-powertoys
-microsoft-windows-terminal
+bruno
 rancher-desktop
-firacode
 zoxide
+beyondcompare
+# OS tools
+microsoft-windows-terminal
+firacode
+powertoys
+obs-studio
+filezilla
 # Personal
 signal
 bitwarden
