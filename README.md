@@ -37,3 +37,4 @@ Work and personal machines may want diverging environments. To this end, the scr
 1. OS specific `sudo`
 1. Home/work configs
 1. OS specific configs
+1. Port Windows Terminal settings

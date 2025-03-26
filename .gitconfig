@@ -60,6 +60,10 @@
 	helper = manager
 [help]
 	autocorrect = prompt
+[credential]
+	helper = manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
 [rerere]
 	autoSquash = true
 	autoStash = true
