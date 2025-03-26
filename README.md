@@ -34,7 +34,6 @@ Work and personal machines may want diverging environments. To this end, the scr
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
 
 # TODO
-1. Something with credential management to make it easier to work on `main` with the environment specific credential management.
 1. OS specific `sudo`
 1. OS specific bootstrap (Install package managers)
 1. OS specific configs
