@@ -36,3 +36,4 @@ Work and personal machines may want diverging environments. To this end, the scr
 # TODO
 1. OS specific configs
 1. Linux packages
+1. Port Windows Terminal settings

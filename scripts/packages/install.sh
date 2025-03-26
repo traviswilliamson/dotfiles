@@ -33,9 +33,6 @@ case $(os) in
         choco upgrade chocolatey
         ;;
 esac
-# macos: brew
-# macos: Something for brew taps, must run before brew, currently need
-# brew tap microsoft/git
 
 # Common packages in this directory
 # OS specific packages in child directory of that name
