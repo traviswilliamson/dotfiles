@@ -7,7 +7,7 @@ vscode
 bruno
 rancher-desktop
 zoxide
-beyondcompare
+beyondcompare --version=4.4.7.20240301
 # OS tools
 microsoft-windows-terminal
 firacode

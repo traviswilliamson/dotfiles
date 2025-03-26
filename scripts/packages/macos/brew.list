@@ -1,0 +1,9 @@
+install python
+tap microsoft/git
+install --cask git-credential-manager-core
+install --cask google-chrome
+install --cask brave-browser
+install --cask slack
+install --cask discord
+install --cask visual-studio-code
+install --cask dotnet-sdk
