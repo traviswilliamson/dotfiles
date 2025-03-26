@@ -63,6 +63,8 @@
 	sort = -committerdate
 [tag]
 	sort = version:refname
+[credential]
+	helper = manager
 [help]
 	autocorrect = prompt
 [rerere]
