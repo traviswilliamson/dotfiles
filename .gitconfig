@@ -18,7 +18,7 @@
     continue = "-c core.editor=true rebase --continue"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
-	helper = C:/Users/travi/AppData/Local/Programs/Git\\ Credential\\ Manager/git-credential-manager-core.exe
+	helper = manager
 [init]
 	defaultBranch = main
 [push]
