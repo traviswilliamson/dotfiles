@@ -8,7 +8,7 @@ repo() {
         cd "$repo_path"
     fi
 }
-complete -W "$(find ~/repos -mindepth 2 -maxdepth 2 -type d -print0 | xargs -0 -n1 -- basename)" repo
+
 forrepos() {
     CYAN='\033[0;36m'
     NC='\033[0m'
