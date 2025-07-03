@@ -3,3 +3,4 @@ Microsoft.devtunnel
 --exact --id Microsoft.AzureCLI
 --id WhatsApp.WhatsApp -e
 Neovim.Neovim
+--id=Microsoft.Sysinternals.Whois -e

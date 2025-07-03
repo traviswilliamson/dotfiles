@@ -3,6 +3,7 @@ export PATH="/Users/twilliamson/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 PROMPT_COMMAND='history -a'
 alias ls="ls -a --color=auto"
+alias whois=whois64
 export LESS="$LESS -R --no-init --quit-if-one-screen"
 source ~/scripts/sourceall.sh
 export PATH="/c/Program Files/Neovim/bin:$PATH"
