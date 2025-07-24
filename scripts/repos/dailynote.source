@@ -1,0 +1,141 @@
+#!/bin/bash
+source ~/scripts/os.source
+
+dailynote() {
+    local cyan='\033[0;36m'
+    local green='\033[0;32m'
+    local nc='\033[0m'
+    local red='\033[0;31m'
+    echo -e "${cyan}Daily note$nc"
+    
+    # Date
+    printf -v date '%(%Y-%m-%d)T' -1
+    printf -v longYear '%(%Y)T' -1
+    printf -v shortYear '%(%y)T' -1
+    printf -v shortMonth '%(%m)T' -1
+    printf -v longMonth '%(%B)T' -1
+    printf -v shortDay '%(%d)T' -1
+    printf -v longDay '%(%A)T' -1
+
+    # Path
+    local path="${HOME}/repos/work/notes/journal/${longYear}/${shortMonth}/${shortYear}-${shortMonth}-${shortDay}.md"
+    echo -e "${green}Today's note path: $path${nc}"
+
+    # File exists
+    # Overwrite? Append? Stop?
+    if [[ -f $path ]]; then
+        echo -e "${green}Existing file found${nc}"
+        select choice in "Append" "Overwrite" "Cancel"; do
+            choice=${choice:-$REPLY}
+            case $choice in
+            [Aa]* )
+                local append=true
+                break
+                ;;
+            [Oo]* )
+                local append=false
+                break
+                ;;
+            [Cc]* )
+                echo -e "${red}Exiting${nc}"
+                return
+                ;;
+            esac
+        done
+    else
+        echo $(dirname $path)
+        if [[ ! -d $(dirname $path) ]]; then
+            echo -e "${green}Containing folders not found. Create?${nc}"
+            select choice in "Yes" "No"; do
+                choice=${choice:-$REPLY}
+                case $choice in
+                [Yy]* )
+                    mkdir -p $(dirname $path)
+                    break
+                    ;;
+                [Nn]* )
+                    echo -e "${red}Exiting${nc}"
+                    return
+                    ;;
+                esac
+            done
+        fi
+    fi
+
+    # Template
+
+    ## Day specific content
+    if [[ $longDay == Monday ]]; then
+        read -r -d '' monday << EOV
+\n- [ ] Update sprints and hours
+EOV
+    else
+        local monday=''
+    fi
+
+    if [[ $longDay == Wednesday ]]; then
+        read -r -d '' wednesday << EOV
+\n- [ ] AvEs
+    - [ ]
+    - [ ] To JD
+    - [ ] To Renee
+EOV
+    else
+        local wednesday=''
+    fi
+    
+    if [[ $longDay == Thursday ]]; then
+        read -r -d '' thursday << EOV
+\n- [ ] Team leads
+- [ ] Scorecard
+EOV
+    else
+        local thursday=''
+    fi
+
+    # TODO: Grab from yesterday's note
+
+    ## Clipboard
+    case $(os) in
+    ("linux")
+        local clipboard="$(xclip -selection clipboard -o)"
+        ;;
+    ("macos"*)
+        local clipboard="$(pbpaste)"
+        ;;
+    ("windows")
+        local clipboard="$(cat /dev/clipboard)"
+        ;;
+    esac
+
+    read -r -d '' totalContent << EOV
+# ${longDay}, ${longMonth} ${shortDay}, ${longYear}
+- [ ] Create TODO list for the day${monday}${wednesday}
+- [ ] Standup${thursday}${clipboard}
+
+# Development In Progress
+- DD (Great)
+  - 
+- MS (Alacritous)
+  - 
+- SPS (Revered)
+  - 
+EOV
+
+    if [[ $append = true ]]; then
+        printf "$totalContent" >> "$path"
+    else
+        printf "$totalContent" > "$path"
+    fi
+
+    code "$path"
+}
+
+dailycommit() {
+    local cyan='\033[0;36m'
+    local nc='\033[0m'
+    echo -e "${cyan}Daily commit$nc"
+    git add :
+    git commit -m "Daily commit"
+    git push
+}
