@@ -4,7 +4,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = true
-	editor = code
+	editor = code --wait
 [diff]
 	tool = bc4
 	algorithm = histogram
