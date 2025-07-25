@@ -1,18 +1,15 @@
 #! /usr/bin/env sh
 
 # Colors make the progress a whole lot easier to read
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-CYAN='\033[0;36m'
-NC='\033[0m'
+source ~/scripts/colors.source
 
 # Detect running as admin
 echo Administrative permissions required. Detecting permissions...
 if ! net session 1>/dev/null 2>&1; then
-    echo -e "${RED}Failure: Current permissions inadequate. Run as admin.${NC}"
+    colorRed Failure: Current permissions inadequate. Run as admin.
     exit 1
 else
-    echo -e "${GREEN}Success: Administrative permissions confirmed.${NC}"
+    colorGreen Success: Administrative permissions confirmed.
 fi
 
 DIR=$(dirname "$0")
@@ -29,6 +26,6 @@ echo "./packages/install.sh"
 ./packages/install.sh
 
 find * -name "setup.sh" | while read setup; do
-    echo -e "${CYAN}running ./$setup${NC}"
+    colorCyan "running ./$setup"
     ./$setup
 done

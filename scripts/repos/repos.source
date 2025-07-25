@@ -1,3 +1,5 @@
+#!/bin/bash
+
 repo() {
     repo_base=$(realpath ~/repos)
     repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "*$1*" | head -n 1)
@@ -10,13 +12,21 @@ repo() {
 }
 
 forrepos() {
-    CYAN='\033[0;36m'
-    NC='\033[0m'
     for d in $(find ~/repos -mindepth 2 -maxdepth 2 ! -path . -type d); do
         pushd $d > /dev/null
         re=$(basename $d)
-        echo -e "$CYAN$re$NC"
+        colorCyan $re
         eval "$@"
         popd > /dev/null
     done
 }
+
+gohome() { 
+    gohome_temp_branch=$(git branch --show-current)
+    git switch ${1-master}
+    git pull
+    git branch -D "${gohome_temp_branch}"
+    unset gohome_temp_branch
+}
+
+alias killorig="find . -type f -name '*.orig' -delete"

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+colorCyan() {
+    echo -e "\033[0;36m$1\033[0m"
+}
+
+colorGreen() {
+    echo -e "\033[0;32m$1\033[0m"
+}
+
+colorRed() {
+    echo -e "\033[0;31m$1\033[0m"
+}

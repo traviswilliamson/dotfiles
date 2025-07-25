@@ -1,3 +1,4 @@
+#!/bin/bash
 os() {
     case $OSTYPE in
         "linux-gnu"* | "freebsd"*)
