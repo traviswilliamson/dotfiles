@@ -1,5 +1,25 @@
 #!/bin/bash
-source ~/scripts/os.source
+
+
+previousnote() {
+    local count=1
+    while [[ $count -le 50 ]]; do
+        local longYear=$(date +%Y -d "${count} day ago")
+        local shortYear=$(date +%y -d "${count} day ago")
+        local shortMonth=$(date +%m -d "${count} day ago")
+        local longMonth=$(date +%B -d "${count} day ago")
+        local shortDay=$(date +%d -d "${count} day ago")
+        local longDay=$(date +%A -d "${count} day ago")
+        local path="${HOME}/repos/work/notes/journal/${longYear}/${shortMonth}/${shortYear}-${shortMonth}-${shortDay}.md"
+        if [[ -f $path ]]; then
+            echo "$path"
+            return
+        else
+            ((count+=1))
+        fi
+    done
+    return -1
+}
 
 dailynote() {
     local cyan='\033[0;36m'
@@ -9,17 +29,16 @@ dailynote() {
     echo -e "${cyan}Daily note$nc"
     
     # Date
-    printf -v date '%(%Y-%m-%d)T' -1
-    printf -v longYear '%(%Y)T' -1
-    printf -v shortYear '%(%y)T' -1
-    printf -v shortMonth '%(%m)T' -1
-    printf -v longMonth '%(%B)T' -1
-    printf -v shortDay '%(%d)T' -1
-    printf -v longDay '%(%A)T' -1
+    local longYear=$(date +%Y)
+    local shortYear=$(date +%y)
+    local shortMonth=$(date +%m)
+    local longMonth=$(date +%B)
+    local shortDay=$(date +%d)
+    local longDay=$(date +%A)
 
     # Path
     local path="${HOME}/repos/work/notes/journal/${longYear}/${shortMonth}/${shortYear}-${shortMonth}-${shortDay}.md"
-    echo -e "${green}Today's note path: $path${nc}"
+    echo -e "${cyan}Today's note path: $path${nc}"
 
     # File exists
     # Overwrite? Append? Stop?
@@ -43,7 +62,6 @@ dailynote() {
             esac
         done
     else
-        echo $(dirname $path)
         if [[ ! -d $(dirname $path) ]]; then
             echo -e "${green}Containing folders not found. Create?${nc}"
             select choice in "Yes" "No"; do
@@ -93,27 +111,17 @@ EOV
         local thursday=''
     fi
 
-    # TODO: Grab from yesterday's note
-
-    ## Clipboard
-    case $(os) in
-    ("linux")
-        local clipboard="$(xclip -selection clipboard -o)"
-        ;;
-    ("macos"*)
-        local clipboard="$(pbpaste)"
-        ;;
-    ("windows")
-        local clipboard="$(cat /dev/clipboard)"
-        ;;
-    esac
+    # Grab from previous note
+    if previousPath=$(previousnote); then
+        previousContent=$(sed '/[[[:space:]]]/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
+    else
+        previousContent=""
+    fi
 
     read -r -d '' totalContent << EOV
 # ${longDay}, ${longMonth} ${shortDay}, ${longYear}
 - [ ] Create TODO list for the day${monday}${wednesday}
-- [ ] Standup${thursday}${clipboard}
-
-# Development In Progress
+- [ ] Standup${thursday}${previousContent}
 - DD (Great)
   - 
 - MS (Alacritous)
