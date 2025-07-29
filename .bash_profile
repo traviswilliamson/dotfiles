@@ -4,7 +4,7 @@ export PATH="/Users/twilliamson/.rd/bin:$PATH"
 PROMPT_COMMAND='history -a'
 alias ls="ls -a --color=auto"
 export LESS="$LESS -R --no-init --quit-if-one-screen"
-source scripts/sourceall.sh
+source ~/scripts/sourceall.sh
 export PATH="/c/Program Files/Neovim/bin:$PATH"
 eval "$(zoxide init bash)"
 export NVM_DIR="$HOME/.nvm"
