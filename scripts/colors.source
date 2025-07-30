@@ -11,3 +11,23 @@ colorGreen() {
 colorRed() {
     echo -e "\033[0;31m$1\033[0m"
 }
+
+colorYellow() {
+    echo -e "\033[0;33m$1\033[0m"
+}
+
+info() {
+    colorCyan $1
+}
+
+error() {
+    colorRed $1
+}
+
+success() {
+    colorGreen $1
+}
+
+question() {
+    colorYellow $1
+}

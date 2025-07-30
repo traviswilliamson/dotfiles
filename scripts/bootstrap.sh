@@ -6,10 +6,10 @@ source ~/scripts/colors.source
 # Detect running as admin
 echo Administrative permissions required. Detecting permissions...
 if ! net session 1>/dev/null 2>&1; then
-    colorRed Failure: Current permissions inadequate. Run as admin.
+    error Failure: Current permissions inadequate. Run as admin.
     exit 1
 else
-    colorGreen Success: Administrative permissions confirmed.
+    success Success: Administrative permissions confirmed.
 fi
 
 DIR=$(dirname "$0")
@@ -26,6 +26,6 @@ echo "./packages/install.sh"
 ./packages/install.sh
 
 find * -name "setup.sh" | while read setup; do
-    colorCyan "running ./$setup"
+    info "running ./$setup"
     ./$setup
 done

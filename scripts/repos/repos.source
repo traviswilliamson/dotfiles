@@ -15,7 +15,7 @@ forrepos() {
     for d in $(find ~/repos -mindepth 2 -maxdepth 2 ! -path . -type d); do
         pushd $d > /dev/null
         re=$(basename $d)
-        colorCyan $re
+        info $re
         eval "$@"
         popd > /dev/null
     done
