@@ -22,12 +22,6 @@ previousnote() {
 }
 
 dailynote() {
-    local cyan='\033[0;36m'
-    local green='\033[0;32m'
-    local nc='\033[0m'
-    local red='\033[0;31m'
-    echo -e "${cyan}Daily note$nc"
-    
     # Date
     local longYear=$(date +%Y)
     local shortYear=$(date +%y)
@@ -38,12 +32,12 @@ dailynote() {
 
     # Path
     local path="${HOME}/repos/work/notes/journal/${longYear}/${shortMonth}/${shortYear}-${shortMonth}-${shortDay}.md"
-    echo -e "${cyan}Today's note path: $path${nc}"
+    info "Today's note path: $path"
 
     # File exists
     # Overwrite? Append? Stop?
     if [[ -f $path ]]; then
-        echo -e "${green}Existing file found${nc}"
+        question "Existing file found, do you want to:"
         select choice in "Append" "Overwrite" "Cancel"; do
             choice=${choice:-$REPLY}
             case $choice in
@@ -56,14 +50,14 @@ dailynote() {
                 break
                 ;;
             [Cc]* )
-                echo -e "${red}Exiting${nc}"
+                error "Exiting"
                 return
                 ;;
             esac
         done
     else
         if [[ ! -d $(dirname $path) ]]; then
-            echo -e "${green}Containing folders not found. Create?${nc}"
+            question "Containing folders not found. Create?"
             select choice in "Yes" "No"; do
                 choice=${choice:-$REPLY}
                 case $choice in
@@ -72,7 +66,7 @@ dailynote() {
                     break
                     ;;
                 [Nn]* )
-                    echo -e "${red}Exiting${nc}"
+                    error "Exiting"
                     return
                     ;;
                 esac
@@ -132,18 +126,17 @@ ${previousContent}
 EOV
 
     if [[ $append = true ]]; then
-        printf "$totalContent" >> "$path"
+        echo -e "$totalContent" >> "$path"
     else
-        printf "$totalContent" > "$path"
+        echo -e "$totalContent" > "$path"
     fi
 
+    success "Created note; opening"
     code "$path"
 }
 
 dailycommit() {
-    local cyan='\033[0;36m'
-    local nc='\033[0m'
-    echo -e "${cyan}Daily commit$nc"
+    info "Daily commit: Add, commit, push"
     git add :
     git commit -m "Daily commit"
     git push
