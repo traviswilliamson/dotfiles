@@ -29,4 +29,12 @@ gohome() {
     unset gohome_temp_branch
 }
 
-alias killorig="find . -type f -name '*.orig' -delete"
+killorig() {
+    for f in $(find . -type f -name '*.orig'); do
+        if rm $f; then
+            success "Deleted $f"
+        else
+            error "Failed to delete $f"
+        fi
+    done
+}

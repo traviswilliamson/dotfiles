@@ -17,17 +17,17 @@ colorYellow() {
 }
 
 info() {
-    colorCyan $1
+    colorCyan "$1"
 }
 
 error() {
-    colorRed $1
+    colorRed "$1"
 }
 
 success() {
-    colorGreen $1
+    colorGreen "$1"
 }
 
 question() {
-    colorYellow $1
+    colorYellow "$1"
 }
