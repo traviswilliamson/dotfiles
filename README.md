@@ -35,5 +35,5 @@ Work and personal machines may want diverging environments. To this end, the scr
 
 # TODO
 1. OS specific `sudo`
-1. OS specific bootstrap (Install package managers)
+1. Home/work configs
 1. OS specific configs
