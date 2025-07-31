@@ -22,9 +22,6 @@ previousnote() {
 }
 
 dailynote() {
-    set -e
-    trap "error 'Failed to fully create daily note'" EXIT
-
     # Date
     local longYear=$(date +%Y)
     local shortYear=$(date +%y)
@@ -136,8 +133,6 @@ EOV
 
     success "Created note; opening"
     code "$path"
-
-    trap - EXIT
 }
 
 dailycommit() {
