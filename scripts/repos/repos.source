@@ -4,9 +4,10 @@ repo() {
     repo_base=$(realpath ~/repos)
     repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "*$1*" | head -n 1)
     if ! test "$1" || ! test "$repo_path"; then
+        error "Repo not found, going to repo base path"
         cd "$repo_base"
     else
-        echo "found $repo_path"
+        success "Found $repo_path"
         cd "$repo_path"
     fi
 }
