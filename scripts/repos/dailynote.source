@@ -88,9 +88,9 @@ EOV
     if [[ $longDay == Wednesday ]]; then
         read -r -d '' wednesday << EOV
 \n- [ ] AvEs
-    - [ ]
-    - [ ] To JD
-    - [ ] To Renee
+  - [ ]
+  - [ ] To JD
+  - [ ] To Renee
 EOV
     else
         local wednesday=''
@@ -122,6 +122,8 @@ ${previousContent}
 - MS (Alacritous)
   - 
 - SPS (Revered)
+  - 
+- HP
   - 
 EOV
 
