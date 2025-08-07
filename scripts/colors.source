@@ -21,7 +21,7 @@ info() {
 }
 
 error() {
-    colorRed "$1"
+    >&2 colorRed "$1"
 }
 
 success() {
