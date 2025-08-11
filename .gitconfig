@@ -1,6 +1,6 @@
 [user]
 	name = Travis Williamson
-	email = twilliamson@capsher.com
+	email = travis.m.williamson@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = true
