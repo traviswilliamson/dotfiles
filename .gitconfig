@@ -25,6 +25,8 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
 	helper = manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
 [init]
 	defaultBranch = main
 [push]
@@ -56,14 +58,8 @@
 	sort = -committerdate
 [tag]
 	sort = version:refname
-[credential]
-	helper = manager
 [help]
 	autocorrect = prompt
-[credential]
-	helper = manager
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [rerere]
 	autoSquash = true
 	autoStash = true
