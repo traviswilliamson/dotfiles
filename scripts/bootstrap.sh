@@ -2,7 +2,6 @@
 
 # Colors make the progress a whole lot easier to read
 source ~/scripts/colors.source
-source ~/scripts/colors.source
 
 # Detect running as admin
 echo Administrative permissions required. Detecting permissions...
