@@ -22,10 +22,10 @@ cd "$DIR"
 # Something for windows terminal?
 
 # Run these in parallel
-echo "./packages/install.sh"
+info "Running ./packages/install.sh"
 ./packages/install.sh
 
 find * -name "setup.sh" | while read setup; do
-    info "running ./$setup"
+    info "Running ./$setup"
     ./$setup
 done
