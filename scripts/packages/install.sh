@@ -4,6 +4,7 @@ DIR=$(dirname "$0")
 cd "$DIR"
 
 source ~/scripts/os.source
+source ~/scripts/colors.source
 
 COMMENT=\#*
 
@@ -31,7 +32,7 @@ esac
         if [[ $package == $COMMENT ]];
         then continue
         fi
-        echo "$cmd $package"
+        info "$cmd $package"
         $cmd $package
     done < "$fn"
 done

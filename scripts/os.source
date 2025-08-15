@@ -16,3 +16,18 @@ os() {
             ;;
     esac
 }
+
+clipboardpaste() {
+    case $(os) in
+    ("linux")
+        local clipboard="$(xclip -selection clipboard -o)"
+        ;;
+    ("macos"*)
+        local clipboard="$(pbpaste)"
+        ;;
+    ("windows")
+        local clipboard="$(cat /dev/clipboard)"
+        ;;
+    esac
+    echo "$clipboard"
+}

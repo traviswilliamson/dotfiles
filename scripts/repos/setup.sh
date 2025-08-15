@@ -1,5 +1,7 @@
 #! /usr/bin/env sh
 
+source ~/scripts/colors.source
+
 DIR=$(dirname "$0")
 cd "$DIR"
 
@@ -15,6 +17,7 @@ find * -name "*.list" | while read fn; do
         if [[ $repo == $COMMENT ]];
         then continue; else
             pushd "$REPO_PATH/$folder" > /dev/null
+            info "Cloning $repo into $folder"
             git clone $repo &
             popd > /dev/null
         fi
