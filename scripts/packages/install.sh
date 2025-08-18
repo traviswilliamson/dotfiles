@@ -13,7 +13,18 @@ case $(os) in
     "linux")
         ;;
     "macos"*)
+        # xcode tools
+        info "Installing XCode command line tools..."
+        if xcode-select --print-path &>/dev/null; then
+            success "XCode command line tools already installed."
+        elif xcode-select --install &>/dev/null; then
+            success "Finished installing XCode command line tools."
+        else
+            error "Failed to install XCode command line tools."
+        fi
+
         # brew
+        info "Installing brew"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         ;;
     "windows")

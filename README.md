@@ -34,6 +34,5 @@ Work and personal machines may want diverging environments. To this end, the scr
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
 
 # TODO
-1. OS specific `sudo`
-1. Home/work configs
 1. OS specific configs
+1. Linux packages
