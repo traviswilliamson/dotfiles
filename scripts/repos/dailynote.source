@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source $HOME/scripts/repos/repos.source
 
 previousnote() {
     local count=1
@@ -22,6 +23,7 @@ previousnote() {
 }
 
 dailynote() {
+    if ! repoexists notes; then return 1; fi
     # Date
     local longYear=$(date +%Y)
     local shortYear=$(date +%y)

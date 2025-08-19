@@ -39,3 +39,12 @@ killorig() {
         fi
     done
 }
+
+repoexists() {
+    repo_base=$(realpath ~/repos)
+    repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "$1" | head -n 1 )
+    if ! test "$repo_path"; then
+        error "Repo $1 not found"
+        return 1
+    fi
+}
