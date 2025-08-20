@@ -64,6 +64,7 @@ Work and personal machines may want diverging environments. To this end, the scr
 - Ask for environment
 - Make idempotent, check if package/repo installed/cloned
 - Warning/error messages `command || warn "Failed to command"`
+  - Build a list of these to show at the end of the script, like how compilers show errors
 - Packages
     - OS
         - prereqs
