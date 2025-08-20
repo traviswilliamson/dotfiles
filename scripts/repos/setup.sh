@@ -1,6 +1,6 @@
-#! /usr/bin/env sh
+#! /usr/bin/bash
 
-source ~/scripts/colors.source
+source $HOME/scripts/colors.source
 
 DIR=$(dirname "$0")
 cd "$DIR"

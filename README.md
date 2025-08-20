@@ -8,9 +8,17 @@ Exception: Some applications keep their settings outside of the user home direct
 
 ## Setup
 To bootstrap a new machine:
-1. `git clone` this repo into your `~` directory.
-2. Make sure bash is on the machine
-3. Run `~/scripts/bootstrap.sh` with elevated permissions
+1. Make sure git and bash are on the machine
+2. 
+    ```bash
+    cd ~
+    git init
+    git remote add origin https://github.com/traviswilliamson/dotfiles
+    git fetch origin
+    git checkout -t origin/main
+    git switch main
+    ```
+7. Run `~/scripts/bootstrap.sh` with elevated permissions
 
 ### Packages
 Packages in `scripts/packages/*.list` files will be installed using the filename as the package manager. So, for example, `choco.list` containing `vscode` will run `choco install vscode`. Specific exceptions to including `install` exist, defined in the `scripts/packages/install.sh` file, such as for VSCode extensions.
@@ -33,6 +41,104 @@ Work and personal machines may want diverging environments. To this end, the scr
 - [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)'s configuration options for macOS
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
 
-# TODO
-1. OS specific configs
+# General TODO
+1. Clean up `.bashrc`
 1. Linux packages
+1. Handle CRLF vs LF. [gitattributes](https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings)?
+1. Merge all branches together
+1. Make setting up the repo in ##setup a script run from curl
+  1. [Make sure](https://askubuntu.com/a/409031) to `chmod +x` the other setup/install scripts. Maybe in `bootstrap.sh`?
+1. OS specific configs
+
+# .bashrc TODO
+- Check if interactive
+- Put aliases into file
+- Improve PS1 prompt, something like git bash's default
+- Source scripts (At this point, for utils at next step)
+- OS specific stuff
+- Environment specific stuff, like rancher
+- Set environment variables, like `$PATH`
+- Now init plugins
+
+# bootstrap TODO
+- Ask for environment
+- Make idempotent, check if package/repo installed/cloned
+- Warning/error messages `command || warn "Failed to command"`
+- Packages
+    - OS
+        - prereqs
+        - common
+        - environment
+- repos
+    - common & environment specific
+
+# Packages on linux TODO
+## curl
+```bash
+sudo apt install curl
+```
+
+## wget
+```bash
+sudo apt update
+sudo apt-get install wget
+```
+
+## dotnet sdk
+```bash
+wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-9.0
+sudo apt-get install -y aspnetcore-runtime-8.0
+```
+
+## git credential manager
+```bash
+dotnet tool install -g git-credential-manager
+git-credential-manager configure
+dotnet dev-certs https --trust
+sudo dotnet workload update
+```
+
+## zoxide
+```bash
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+```
+
+## vscode
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt-get update
+sudo apt-get install code
+```
+
+## firacode
+```bash
+sudo apt install fonts-firacode
+```
+
+## signal
+```bash
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg;
+cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+  sudo tee /etc/apt/sources.list.d/signal-xenial.list
+sudo apt update && sudo apt install signal-desktop
+```
+
+## brave
+```bash
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
+sudo apt update
+sudo apt install brave-browser
+```
+
+## neovim
+```bash
+sudo apt-get install neovim
+```

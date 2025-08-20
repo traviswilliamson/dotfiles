@@ -1,10 +1,10 @@
-#! /usr/bin/env sh
+#! /usr/bin/bash
 
 DIR=$(dirname "$0")
 cd "$DIR"
 
-source ~/scripts/os.source
-source ~/scripts/colors.source
+source $HOME/scripts/os.source
+source $HOME/scripts/colors.source
 
 COMMENT=\#*
 

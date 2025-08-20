@@ -1,8 +1,8 @@
-#! /usr/bin/env sh
+#! /usr/bin/bash
 
 # Colors make the progress a whole lot easier to read
-source ~/scripts/colors.source
-source ~/scripts/os.source
+source $HOME/scripts/colors.source
+source $HOME/scripts/os.source
 
 # Detect running as admin
 info Administrative permissions required. Detecting permissions...
