@@ -5,6 +5,7 @@
 	autocrlf = true
 	editor = code --wait
 	excludesFile = '~/.gitignore_global'
+	symlinks = true
 [diff]
 	tool = vscode
 	algorithm = histogram
