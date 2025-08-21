@@ -7,7 +7,7 @@ source $HOME/scripts/os.source
 # Detect running as admin
 info Administrative permissions required. Detecting permissions...
 case $(os) in
-    "linux" | "macos"*)
+    "linux" | "macos")
         info "Prompting for sudo password..."
         if sudo -v; then
             # Keep-alive: update existing `sudo` time stamp until `setup.sh` has finished

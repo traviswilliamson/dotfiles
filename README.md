@@ -29,10 +29,7 @@ OS specific packages defined in `scripts/packages/$(os)/*.list` will only be ins
 Repos defined in `scripts/repos/*.list` will be cloned into `~/repos/$1/` folders, designed for separate contexts like `personal` and `work`. Helpful repository managing scripts are available in `scripts/repos/repos.bash` making use of this folder structure.
 
 ### Scripts
-All scripts matching `scripts/*.source` will be sourced by `.bash_profile`
-
-## Branching
-Work and personal machines may want diverging environments. To this end, the scripts and common packages are kept on `main`, and specific packages and configrations live on `home` and `work`. Merge changes from `main` into other branches, and cherry-pick from others into `main` if there are changes to common elements.
+All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profile`
 
 # Acknowledgements
 - [Drew DeVault](https://drewdevault.com/2019/12/30/dotfiles.html)'s method of turning the home directory into a repo
@@ -44,7 +41,6 @@ Work and personal machines may want diverging environments. To this end, the scr
 # General TODO
 1. Clean up `.bashrc`
 1. Linux packages
-1. Handle CRLF vs LF. [gitattributes](https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings)?
 1. Merge all branches together
 1. Make setting up the repo in ##setup a script run from curl
   1. [Make sure](https://askubuntu.com/a/409031) to `chmod +x` the other setup/install scripts. Maybe in `bootstrap.sh`?
@@ -54,6 +50,7 @@ Work and personal machines may want diverging environments. To this end, the scr
 - Check if interactive
 - Put aliases into file
 - Improve PS1 prompt, something like git bash's default
+  - Switch yellow and cyan for path/git
 - Source scripts (At this point, for utils at next step)
 - OS specific stuff
 - Environment specific stuff, like rancher

@@ -48,16 +48,12 @@
 	unmerged = normal yellow
 [pull]
 	rebase = true
-[safe]
-	directory = C:/Users/twilliamson
 [column]
     ui = auto
 [branch]
 	sort = -committerdate
 [tag]
 	sort = version:refname
-[credential]
-	helper = manager
 [help]
 	autocorrect = prompt
 [rerere]
@@ -66,3 +62,7 @@
 	updateRefs = true
 	enabled = true
 	autoupdate = true
+[IncludeIf "gitdir:~/repos/work/"]
+	path = ~/scripts/configs/git/.gitconfig.work
+[Include]
+	path = ~/.gitconfig.thisos
