@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # Colors make the progress a whole lot easier to read
 source $HOME/scripts/colors.source
@@ -33,15 +33,22 @@ case $(os) in
 esac
 
 DIR=$(dirname "$0")
-cd "$DIR"
+pushd "$DIR" > /dev/null
 
 #TODO: Configure windows, get starting point from gist
 # Run that as a powershell script
 # Make sure to enable stuff for rancher
+# reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
 
 # Something for windows terminal?
 
-# Run these in parallel
+find * -name "*.sh" | while read script; do
+    if [[ ! -x "$script" ]] && [[ "$script" != "$(basename $0)" ]] then
+        info "Making ./$script executable"
+        chmod +x "$script" || error "Failed to make $script executable"
+    fi
+done
+
 info "Running ./packages/install.sh"
 ./packages/install.sh
 
@@ -49,3 +56,5 @@ find * -name "setup.sh" | while read setup; do
     info "Running ./$setup"
     ./$setup
 done
+
+popd > /dev/null
