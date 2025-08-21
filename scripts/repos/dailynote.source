@@ -141,7 +141,7 @@ EOV
 
 dailycommit() {
     info "Daily commit: Add, commit, push"
-    git add :
-    git commit -m "Daily commit"
-    git push
+    git add : && success Added || error "Failed to add"
+    git commit -m "Daily commit" && success committed || error "Failed to commit"
+    git push && success Pushed || error "Failed to push"
 }
