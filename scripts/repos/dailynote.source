@@ -109,7 +109,7 @@ EOV
 
     # Grab from previous note
     if previousPath=$(previousnote); then
-        previousContent=$(sed '/[[[:space:]]]/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
+        previousContent=$(sed -r '(/[[[:space:]]]|# Soon)/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
     else
         previousContent=""
     fi
