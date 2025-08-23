@@ -4,7 +4,7 @@ case $- in
       *) return;;
 esac
 
-#TODO: Move to new file
+# History
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -12,9 +12,6 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 PROMPT_COMMAND='history -a'
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Prompt
 source $HOME/.gitprompt.source
@@ -33,10 +30,10 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Completions
 source $HOME/.git-completion.source
 
-#TODO: Move to new file
-# enable color support of ls and also add handy aliases
+# Color aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls -A --color=auto'
@@ -49,18 +46,16 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 
-#TODO: Move exports to new file
+# Exports
 export LESS="$LESS -R --no-init --quit-if-one-screen"
-source ~/scripts/sourceall.sh
 export PATH="/c/Program Files/Neovim/bin:$PATH"
 export PATH="$PATH:~/local/bin"
-
-#TODO: Make OS specific: https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/credstores.md
-# macos=keychain
-# windows=wincredman
-export GCM_CREDENTIAL_STORE=secretservice
-
-eval "$(zoxide init bash)"
 export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Plugins
+eval "$(zoxide init bash)"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Other scripts
+source ~/scripts/sourceall.sh

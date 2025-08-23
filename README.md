@@ -39,7 +39,6 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
 
 # General TODO
-1. Clean up `.bashrc`
 1. Linux packages
 1. Merge all branches together
 1. Make setting up the repo in ##setup a script run from curl
@@ -48,14 +47,8 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 
 # .bashrc TODO
 
-- Put aliases into file
-- Improve PS1 prompt, something like git bash's default
-  - Switch yellow and cyan for path/git
-- Source scripts (At this point, for utils at next step)
 - OS specific stuff
 - Environment specific stuff, like rancher
-- Set environment variables, like `$PATH`
-- Now init plugins
 
 # bootstrap TODO
 - Ask for environment
