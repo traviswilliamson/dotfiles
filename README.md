@@ -64,53 +64,6 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
     - common & environment specific
 
 # Packages on linux TODO
-## curl
-```bash
-sudo apt install curl
-```
-
-## wget
-```bash
-sudo apt update
-sudo apt-get install wget
-```
-
-## dotnet sdk
-```bash
-wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-sudo apt-get update
-sudo apt-get install -y dotnet-sdk-9.0
-sudo apt-get install -y aspnetcore-runtime-8.0
-```
-
-## git credential manager
-```bash
-dotnet tool install -g git-credential-manager
-git-credential-manager configure
-dotnet dev-certs https --trust
-sudo dotnet workload update
-```
-
-## zoxide
-```bash
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-```
-
-## vscode
-```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt-get update
-sudo apt-get install code
-```
-
-## firacode
-```bash
-sudo apt install fonts-firacode
-```
 
 ## signal
 ```bash

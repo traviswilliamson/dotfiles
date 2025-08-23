@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 DIR=$(dirname "$0")
-cd "$DIR"
+pushd "$DIR" > /dev/null
 
 source $HOME/scripts/os.source
 source $HOME/scripts/colors.source
@@ -11,6 +11,11 @@ COMMENT=\#*
 # Bootstrap package managers by OS
 case $(os) in
     "linux")
+        sudo apt update
+        ./linux/common.sh
+        # TODO: only for this environment
+        ./linux/work.sh
+        ./linux/home.sh
         ;;
     "macos"*)
         # xcode tools
@@ -49,3 +54,5 @@ esac
         $cmd $package
     done < "$fn"
 done
+
+popd > /dev/null

@@ -26,6 +26,8 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
 	helper = manager
+	helper = 
+	helper = /home/twilliamson/.dotnet/tools/git-credential-manager
 [init]
 	defaultBranch = main
 [push]
@@ -67,3 +69,5 @@
 	path = ~/scripts/configs/git/.gitconfig.work
 [Include]
 	path = ~/.gitconfig.thisos
+[credential "https://dev.azure.com"]
+	useHttpPath = true
