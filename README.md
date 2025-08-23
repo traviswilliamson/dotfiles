@@ -47,7 +47,7 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 1. OS specific configs
 
 # .bashrc TODO
-- Check if interactive
+
 - Put aliases into file
 - Improve PS1 prompt, something like git bash's default
   - Switch yellow and cyan for path/git
