@@ -6,19 +6,19 @@ info "Updating package list"
 sudo apt update
 anyinstalled=false
 
-if ! hash curl; then
+if ! hash curl &> /dev/null; then
     anyinstalled=true
     info "Installing curl"
     sudo apt install curl || error "Failed to install curl"
 fi
 
-if ! hash wget; then
+if ! hash wget &> /dev/null; then
     anyinstalled=true
     info "Installing wget"
     sudo apt-get install wget || error "Failed to install wget"
 fi
 
-if ! hash dotnet; then
+if ! hash dotnet &> /dev/null; then
     anyinstalled=true
     info "Installing dotnet"
     wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb || error "Failed to download MS deb file"
@@ -31,7 +31,7 @@ if ! hash dotnet; then
 fi
 
 
-if ! dotnet tool list -g git-credential-manager > /dev/null; then
+if ! dotnet tool list -g git-credential-manager &> /dev/null; then
     anyinstalled=true
     info "Installing git-credential-manager"
     dotnet tool install -g git-credential-manager || error "Failed to install git credential manageR"
@@ -39,13 +39,13 @@ if ! dotnet tool list -g git-credential-manager > /dev/null; then
     sudo dotnet workload update || error "Failed to update git credential manager"
 fi
 
-if ! hash zoxide ; then
+if ! hash zoxide &> /dev/null ; then
     anyinstalled=true
     info "Installing zoxide"
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh || error "Failed to install zoxide"
 fi
 
-if ! hash code; then
+if ! hash code &> /dev/null; then
     anyinstalled=true
     info "Installing VSCode"
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg || error "Failed to download MS public key"
@@ -59,6 +59,21 @@ if ! fc-list | grep -q firacode; then
     anyinstalled=true
     info "Installing firacode font"
     sudo apt install fonts-firacode || error "Failed to install firacode"
+fi
+
+
+## TODO: FIX
+if ! hash brave &> /dev/null; then
+    anyinstalled=true
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg || error "Failed to download brave public key"
+    sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources || error "Failed to download brave package source"
+    sudo apt update
+    sudo apt install brave-browser || error "Failed to instal brave"
+fi
+
+if ! hash nvim &> /dev/null; then
+    anyinstalled=true
+    sudo apt-get install neovim || error "Failed to install neovim"
 fi
 
 if [ $anyinstalled = false ]; then
