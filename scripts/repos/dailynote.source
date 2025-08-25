@@ -109,7 +109,7 @@ EOV
 
     # Grab from previous note
     if previousPath=$(previousnote); then
-        previousContent=$(sed -r '(/[[[:space:]]]|# Soon)/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
+        previousContent=$(sed -r -e '/[[[:space:]]]|# Soon/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
     else
         previousContent=""
     fi
@@ -124,8 +124,6 @@ ${previousContent}
 - MS (Alacritous)
   - 
 - SPS (Revered)
-  - 
-- HP
   - 
 EOV
 
@@ -142,6 +140,6 @@ EOV
 dailycommit() {
     info "Daily commit: Add, commit, push"
     git add : && success Added || error "Failed to add"
-    git commit -m "Daily commit" && success committed || error "Failed to commit"
+    git commit -m "Daily commit" && success Committed || error "Failed to commit"
     git push && success Pushed || error "Failed to push"
 }
