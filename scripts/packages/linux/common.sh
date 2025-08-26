@@ -61,9 +61,7 @@ if ! fc-list | grep -q firacode; then
     sudo apt install fonts-firacode || error "Failed to install firacode"
 fi
 
-
-## TODO: FIX
-if ! hash brave &> /dev/null; then
+if ! dpkg -l brave-browser 2> /dev/null | grep ii -q; then
     anyinstalled=true
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg || error "Failed to download brave public key"
     sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources || error "Failed to download brave package source"
@@ -74,6 +72,11 @@ fi
 if ! hash nvim &> /dev/null; then
     anyinstalled=true
     sudo apt-get install neovim || error "Failed to install neovim"
+fi
+
+if ! dpkg -l gnome-shell-extension-auto-move-windows 2> /dev/null | grep ii -q; then
+    anyinstalled=true
+    sudo apt install gnome-shell-extension-auto-move-windows
 fi
 
 if [ $anyinstalled = false ]; then
