@@ -136,10 +136,3 @@ EOV
     success "Created note; opening"
     code "$path"
 }
-
-dailycommit() {
-    info "Daily commit: Add, commit, push"
-    git add : && success Added || error "Failed to add"
-    git commit -m "Daily commit" && success Committed || error "Failed to commit"
-    git push && success Pushed || error "Failed to push"
-}

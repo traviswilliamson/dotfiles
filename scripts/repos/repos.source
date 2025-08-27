@@ -22,6 +22,15 @@ forrepos() {
     done
 }
 
+repoexists() {
+    repo_base=$(realpath ~/repos)
+    repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "$1" | head -n 1 )
+    if ! test "$repo_path"; then
+        error "Repo $1 not found"
+        return 1
+    fi
+}
+
 gohome() { 
     gohome_temp_branch=$(git branch --show-current)
     git switch ${1-master}
@@ -40,11 +49,9 @@ killorig() {
     done
 }
 
-repoexists() {
-    repo_base=$(realpath ~/repos)
-    repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "$1" | head -n 1 )
-    if ! test "$repo_path"; then
-        error "Repo $1 not found"
-        return 1
-    fi
+dailycommit() {
+    info "Daily commit: Add, commit, push"
+    git add : && success Added || error "Failed to add"
+    git commit -m "${1:-"Daily commit"}" && success Committed || error "Failed to commit"
+    git push && success Pushed || error "Failed to push"
 }
