@@ -19,7 +19,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUPSTREAM=verbose
 GIT_PS1_SHOWCONFLICTSTATE=yes
-PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1=$'\[\e]0;\u@\h:\w\a\]\[\e[38;5;34m\]\u@\h\[\e[0m\]:\[\e[93m\]\w\[\e[38;5;39m\]${PS1_CMD1}\[\e[0m\] \u27A4 '
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1=$'\[\e]0;\u@\h:\w\a\]\[\e[38;5;34m\]\u@\h\[\e[0m\]:\[\e[93m\]\w\[\e[38;5;39m\]${PS1_CMD1}\[\e[0m\]\n\u27A4  '
 
 case "$TERM" in
 xterm*|rxvt*)
