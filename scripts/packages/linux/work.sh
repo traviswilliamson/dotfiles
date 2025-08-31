@@ -6,6 +6,6 @@ anyinstalled=false
 
 # TODO
 
-if [ $anyinstalled = false ]; then
+if [[ $anyinstalled == false ]]; then
     success "All work packages already installed"
 fi

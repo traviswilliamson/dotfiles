@@ -8,10 +8,10 @@ source $HOME/scripts/colors.source
 
 _env=$1
 _os=$(os)
-info "\nInstalling common $_os packages\n"
+info "Installing common $_os packages"
 bash "./$_os/common.sh"
-info "\nInstalling $_env $_os packages\n"
+info "Installing $_env $_os packages"
 bash "./$_os/$_env.sh"
-success "\nFinished installing packages\n"
+success "Finished installing packages\n"
 
 popd > /dev/null

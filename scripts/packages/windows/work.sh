@@ -29,6 +29,30 @@ if ! echo "$packagelist" | grep -q SlackTechnologies.Slack; then
     winget install --id SlackTechnologies.Slack -e --accept-package-agreements --accept-source-agreements || error "Failed to install Slack"
 fi
 
-if [ $anyinstalled = false ]; then
+if ! echo "$packagelist" | grep -q Microsoft.devtunnel; then
+    anyinstalled=true
+    info "Installing devtunnel"
+    winget install --id Microsoft.devtunnel -e --accept-package-agreements --accept-source-agreements || error "Failed to install devtunnel"
+fi
+
+if ! echo "$packagelist" | grep -q Microsoft.AzureCLI; then
+    anyinstalled=true
+    info "Installing Azure CLI"
+    winget install --id Microsoft.AzureCLI -e --accept-package-agreements --accept-source-agreements || error "Failed to install Azure CLI"
+fi
+
+if ! choco list --limit-output -e beyondcompare &> /dev/null; then
+    anyinstalled=true
+    info "Installing Beyond Compare"
+    choco install -y beyondcompare --version=4.4.7.20240301 || error "Failed to install Beyond Compare"
+fi
+
+if ! choco list --limit-output -e filezilla &> /dev/null; then
+    anyinstalled=true
+    info "Installing FileZilla"
+    choco install -y filezilla || error "Failed to install FileZilla"
+fi
+
+if [[ $anyinstalled == false ]]; then
     success "All work packages already installed"
 fi

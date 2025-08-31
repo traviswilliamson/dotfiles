@@ -1,30 +1,41 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 source $HOME/scripts/colors.source
 source $HOME/scripts/repos/repos.source
 
-DIR=$(dirname "$0")
-cd "$DIR"
 
-COMMENT=\#*
-REPO_PATH=$(realpath ~/repos)
 
-mkdir $REPO_PATH
+_env=$1
+if [[ ! "$_env" ]]; then
+    error "Environment argument not passed in"
+else
+    info "Cloning repos"
+    
+    anycloned=false
+    COMMENT=\#*
+    repo_path=$(realpath ~/repos)
+    if [[ ! -d "$repo_path/$_env" ]]; then
+        mkdir -p "$repo_path/$_env" || error "Could not create repos folder"
+    fi
 
-# TODO: Something about environments
-find * -name "*.list" | while read fn; do
-    folder="${fn%.*}"
-    mkdir -p "$REPO_PATH/$folder"
     while read repo; do
+        repo=${repo//$'\r'} #Strip off any carriage returns. Curse you Windows.
         if [[ $repo == $COMMENT ]]; then
             continue;
-        elif ! repoexists $repo; then
-            pushd "$REPO_PATH/$folder" > /dev/null
-            info "Cloning $repo into $folder"
+        elif ! repoexists "${repo##*/}" &> /dev/null; then
+            anycloned=true
+            pushd "$repo_path/$_env" > /dev/null
+            info "Cloning ${repo##*/} into $_env"
             git clone $repo &
             popd > /dev/null
         fi
-    done < "$fn"
-done
+    done < "$(realpath "$(dirname "$0")")/$_env.list"
 
-wait
+    wait
+
+    if [[ $anycloned == true ]]; then
+        success "All repos cloned\n"
+    else
+        success "No repos to clone\n"
+    fi
+fi

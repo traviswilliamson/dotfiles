@@ -88,6 +88,6 @@ if ! hash python3 &> /dev/null; then
     sudo apt-get install python3 || error "Failed to install python"
 fi
 
-if [ $anyinstalled = false ]; then
+if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi

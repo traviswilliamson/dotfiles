@@ -5,7 +5,7 @@ source $HOME/scripts/colors.source
 source $HOME/scripts/os.source
 
 # Detect running as admin
-info Administrative permissions required. Detecting permissions...
+info "Administrative permissions required. Detecting permissions..."
 case $(os) in
     "linux" | "macos")
         info "Prompting for sudo password..."
@@ -20,14 +20,14 @@ case $(os) in
     "windows")
         # TODO: If running on Win 11, enable sudo in developer OS options and use sudo
         if ! net session 1>/dev/null 2>&1; then
-            error Failure: Current permissions inadequate. Run as admin.
+            error "Failure: Current permissions inadequate. Run as admin."
             exit 1
         else
-            success Success: Administrative permissions confirmed.
+            success "Success: Administrative permissions confirmed."
         fi
         ;;
     *)
-        error Unknown OS
+        error "Unknown OS"
         exit 1
         ;;
 esac
@@ -42,6 +42,21 @@ pushd "$DIR" > /dev/null
 
 # Something for windows terminal?
 
+question "What kind of use is this machine for?"
+select _env in "Work" "Personal"; do
+    _env=${_env:-$REPLY}
+    case $_env in
+    [Ww]* )
+        _env=work
+        break
+        ;;
+    [Pp]* )
+        _env=personal
+        break
+        ;;
+    esac
+done
+
 find * -name "*.sh" | while read script; do
     if [[ ! -x "$script" ]] && [[ "$script" != "$(basename $0)" ]] then
         info "Making ./$script executable"
@@ -49,12 +64,12 @@ find * -name "*.sh" | while read script; do
     fi
 done
 
-info "Running ./packages/install.sh"
-./packages/install.sh
+info "Running ./packages/install.sh\n"
+./packages/install.sh $_env
 
 find * -name "setup.sh" | while read setup; do
     info "Running ./$setup"
-    ./$setup
+    ./$setup $_env
 done
 
 popd > /dev/null

@@ -51,6 +51,6 @@ if ! brew list dotnet-sdk &> /dev/null; then
     brew install --cask dotnet-sdk || error "Failed to install .net SDK"
 fi
 
-if [ $anyinstalled = false ]; then
+if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi

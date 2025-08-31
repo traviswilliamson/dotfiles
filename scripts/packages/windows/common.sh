@@ -12,24 +12,26 @@ if ! echo "$packagelist" | grep -q Chocolatey.Chocolatey; then
     choco upgrade chocolatey || error "Failed to upgrade choco"
 fi
 
-if ! echo "$packagelist" | grep -q Neovim.Neovim; then
-    anyinstalled=true
-    info "Installing Neovim"
-    winget install --id Neovim.Neovim -e --accept-package-agreements --accept-source-agreements  || error "Failed to install Neovim"
-fi
-
 if ! echo "$packagelist" | grep -q Brave.Brave; then
     anyinstalled=true
     info "Installing Brave"
     winget install --id Brave.Brave -e --source winget --accept-package-agreements --accept-source-agreements || error "Failed to install Brave"
 fi
 
-if ! echo "$packagelist" | grep -q Microsoft.VisualStudioCode; then
+# Communication
+if ! echo "$packagelist" | grep -q WhatsApp; then
     anyinstalled=true
-    info "Installing VSCode"
-    winget install --id Microsoft.VisualStudioCode -e --source winget --accept-package-agreements --accept-source-agreements || error "Failed to install VSCode"
+    info "Installing WhatsApp"
+    winget install WhatsApp --source winget --accept-package-agreements --accept-source-agreements || error "Failed to install WhatsApp"
 fi
 
+if ! choco list --limit-output -e signal &> /dev/null; then
+    anyinstalled=true
+    info "Installing Signal"
+    choco install -y signal || error "Failed to install Signal"
+fi
+
+# OS utilities
 if ! echo "$packagelist" | grep -q Microsoft.PowerToys; then
     anyinstalled=true
     info "Installing Powertoys"
@@ -40,6 +42,19 @@ if ! echo "$packagelist" | grep -q 7zip.7zip; then
     anyinstalled=true
     info "Installing 7zip"
     winget install --id 7zip.7zip -e --accept-package-agreements --accept-source-agreements || error "Failed to install 7zip"
+fi
+
+# Dev tools
+if ! echo "$packagelist" | grep -q Microsoft.VisualStudioCode; then
+    anyinstalled=true
+    info "Installing VSCode"
+    winget install --id Microsoft.VisualStudioCode -e --source winget --accept-package-agreements --accept-source-agreements || error "Failed to install VSCode"
+fi
+
+if ! echo "$packagelist" | grep -q Neovim.Neovim; then
+    anyinstalled=true
+    info "Installing Neovim"
+    winget install --id Neovim.Neovim -e --accept-package-agreements --accept-source-agreements  || error "Failed to install Neovim"
 fi
 
 if ! echo "$packagelist" | grep -q Microsoft.WindowsTerminal; then
@@ -60,6 +75,7 @@ if ! echo "$packagelist" | grep -q ajeetdsouza.zoxide; then
     winget install --id ajeetdsouza.zoxide -e --accept-package-agreements --accept-source-agreements || error "Failed to install zoxide"
 fi
 
+# Productivity
 if ! echo "$packagelist" | grep -q Bitwarden.Bitwarden; then
     anyinstalled=true
     info "Installing Bitwarden"
@@ -72,6 +88,7 @@ if ! echo "$packagelist" | grep -q OBSProject.OBSStudio; then
     winget install --id OBSProject.OBSStudio -e --accept-package-agreements --accept-source-agreements || error "Failed to install OBS"
 fi
 
+# Languages
 if ! echo "$packagelist" | grep -q Microsoft.DotNet.SDK.8; then
     anyinstalled=true
     info "Installing .net 8 SDK"
@@ -84,6 +101,6 @@ if ! echo "$packagelist" | grep -q Python.Python.3.11; then
     winget install --id Python.Python.3.11 -e --accept-package-agreements --accept-source-agreements || error "Failed to install python"
 fi
 
-if [ $anyinstalled = false ]; then
+if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi

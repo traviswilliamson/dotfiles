@@ -10,6 +10,6 @@ if ! brew list slack &> /dev/null; then
     brew install --cast slack || error "Failed to install Slack"
 fi
 
-if [ $anyinstalled = false ]; then
+if [[ $anyinstalled == false ]]; then
     success "All work packages already installed"
 fi

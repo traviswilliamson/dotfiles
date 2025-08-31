@@ -12,6 +12,6 @@ if ! dpkg -l signal-desktop 2> /dev/null | grep ii -q; then
     sudo apt update && sudo apt install signal-desktop || error "Failed to isntall signal"
 fi
 
-if [ $anyinstalled = false ]; then
-    success "All home packages already installed"
+if [[ $anyinstalled == false ]]; then
+    success "All personal packages already installed"
 fi

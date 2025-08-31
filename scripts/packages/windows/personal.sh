@@ -47,6 +47,6 @@ if ! choco list --limit-output -e mp3tag &> /dev/null; then
     choco install -y mp3tag || error "Failed to install mp3tag"
 fi
 
-if [ $anyinstalled = false ]; then
-    success "All home packages already installed"
+if [[ $anyinstalled == false ]]; then
+    success "All personal packages already installed"
 fi

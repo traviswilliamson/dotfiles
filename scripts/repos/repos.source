@@ -1,8 +1,8 @@
 #!/bin/bash
 
 repo() {
-    repo_base=$(realpath ~/repos)
-    repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "*$1*" | head -n 1)
+    local repo_base=$(realpath ~/repos)
+    local repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "*$1*" | head -n 1)
     if ! test "$1" || ! test "$repo_path"; then
         error "Repo not found, going to repo base path"
         cd "$repo_base"
@@ -15,7 +15,7 @@ repo() {
 forrepos() {
     for d in $(find ~/repos -mindepth 2 -maxdepth 2 ! -path . -type d); do
         pushd $d > /dev/null
-        re=$(basename $d)
+        local re=$(basename $d)
         info $re
         eval "$@"
         popd > /dev/null
@@ -23,20 +23,20 @@ forrepos() {
 }
 
 repoexists() {
-    repo_base=$(realpath ~/repos)
-    repo_path=$(find "$repo_base" -mindepth 2 -maxdepth 2 -type d -iname "$1" | head -n 1 )
-    if ! test "$repo_path"; then
+    echo $1
+    local repo_path=$(find ~/repos -mindepth 2 -maxdepth 2 -type d -iname "$1" | head -n 1)
+    echo -e "$repo_path"
+    if [[ ! "$repo_path" ]]; then
         error "Repo $1 not found"
         return 1
     fi
 }
 
 gohome() { 
-    gohome_temp_branch=$(git branch --show-current)
+    local gohome_temp_branch=$(git branch --show-current)
     git switch ${1-master}
     git pull
     git branch -D "${gohome_temp_branch}"
-    unset gohome_temp_branch
 }
 
 killorig() {
