@@ -20,10 +20,10 @@ To bootstrap a new machine:
     ```
 7. Run `~/scripts/bootstrap.sh` with elevated permissions
 
-### Packages
-Packages in `scripts/packages/*.list` files will be installed using the filename as the package manager. So, for example, `choco.list` containing `vscode` will run `choco install vscode`. Specific exceptions to including `install` exist, defined in the `scripts/packages/install.sh` file, such as for VSCode extensions.
+The bootstrap script is intended to be idempotent, so it can be run multiple times as new pieces are added.
 
-OS specific packages defined in `scripts/packages/$(os)/*.list` will only be installed on the given os.
+### Packages
+Packages install scripts are defined in `scripts/packages/$(os)`, with environment specific packages defined in `work` and `home`, and common ones in `common`.
 
 ### Repos
 Repos defined in `scripts/repos/*.list` will be cloned into `~/repos/$1/` folders, designed for separate contexts like `personal` and `work`. Helpful repository managing scripts are available in `scripts/repos/repos.bash` making use of this folder structure.
@@ -37,9 +37,9 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 - [Dotfiles](https://dotfiles.github.io/)'s collection of inspirations
 - [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)'s configuration options for macOS
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
+- A whole lot of StackOverflow posts
 
 # General TODO
-1. Linux packages
 1. Merge all branches together
 1. Make setting up the repo in ##setup a script run from curl
   1. [Make sure](https://askubuntu.com/a/409031) to `chmod +x` the other setup/install scripts. Maybe in `bootstrap.sh`?
@@ -52,13 +52,6 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 
 # bootstrap TODO
 - Ask for environment
-- Make idempotent, check if package/repo installed/cloned
-- Warning/error messages `command || warn "Failed to command"`
-  - Build a list of these to show at the end of the script, like how compilers show errors
-- Packages
-    - OS
-        - prereqs
-        - common
-        - environment
+- Build a list of errors to show at the end of the script, like how compilers show errors
 - repos
-    - common & environment specific
+  - common & environment specific

@@ -1,0 +1,139 @@
+#!/bin/bash
+
+source $HOME/scripts/repos/repos.source
+source $HOME/scripts/colors.source
+
+previousnote() {
+    local count=1
+    while [[ $count -le 50 ]]; do
+        local longYear=$(date +%Y -d "${count} day ago")
+        local shortYear=$(date +%y -d "${count} day ago")
+        local shortMonth=$(date +%m -d "${count} day ago")
+        local longMonth=$(date +%B -d "${count} day ago")
+        local shortDay=$(date +%d -d "${count} day ago")
+        local longDay=$(date +%A -d "${count} day ago")
+        local path="${HOME}/repos/work/notes/journal/${longYear}/${shortMonth}/${shortYear}-${shortMonth}-${shortDay}.md"
+        if [[ -f $path ]]; then
+            echo "$path"
+            return
+        else
+            ((count+=1))
+        fi
+    done
+    return -1
+}
+
+dailynote() {
+    if ! repoexists notes; then error "notes repo does not exist"; fi
+    # Date
+    local longYear=$(date +%Y)
+    local shortYear=$(date +%y)
+    local shortMonth=$(date +%m)
+    local longMonth=$(date +%B)
+    local shortDay=$(date +%d)
+    local longDay=$(date +%A)
+
+    # Path
+    local path="${HOME}/repos/work/notes/journal/${longYear}/${shortMonth}/${shortYear}-${shortMonth}-${shortDay}.md"
+    info "Today's note path: $path"
+
+    # File exists
+    # Overwrite? Append? Stop?
+    if [[ -f $path ]]; then
+        question "Existing file found, do you want to:"
+        select choice in "Append" "Overwrite" "Cancel"; do
+            choice=${choice:-$REPLY}
+            case $choice in
+            [Aa]* )
+                local append=true
+                break
+                ;;
+            [Oo]* )
+                local append=false
+                break
+                ;;
+            [Cc]* )
+                error "Exiting"
+                return
+                ;;
+            esac
+        done
+    else
+        if [[ ! -d $(dirname $path) ]]; then
+            question "Containing folders not found. Create?"
+            select choice in "Yes" "No"; do
+                choice=${choice:-$REPLY}
+                case $choice in
+                [Yy]* )
+                    mkdir -p $(dirname $path)
+                    break
+                    ;;
+                [Nn]* )
+                    error "Exiting"
+                    return
+                    ;;
+                esac
+            done
+        fi
+    fi
+
+    # Template
+
+    ## Day specific content
+    if [[ $longDay == Monday ]]; then
+        read -r -d '' monday << EOV
+\n- [ ] Update sprints and hours
+EOV
+    else
+        local monday=''
+    fi
+
+    if [[ $longDay == Wednesday ]]; then
+        read -r -d '' wednesday << EOV
+\n- [ ] AvEs
+  - [ ]
+  - [ ] To JD
+  - [ ] To Renee
+EOV
+    else
+        local wednesday=''
+    fi
+    
+    if [[ $longDay == Thursday ]]; then
+        read -r -d '' thursday << EOV
+\n- [ ] Team leads
+- [ ] Scorecard
+EOV
+    else
+        local thursday=''
+    fi
+
+    # Grab from previous note
+    if previousPath=$(previousnote); then
+        previousContent=$(sed -r -e '/[[[:space:]]]|# Soon/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
+    else
+        previousContent=""
+    fi
+
+    read -r -d '' totalContent << EOV
+# ${longDay}, ${longMonth} ${shortDay}, ${longYear}
+- [ ] Create TODO list for the day${monday}${wednesday}
+- [ ] Standup${thursday}
+${previousContent}
+- DD (Great)
+  - 
+- MS (Alacritous)
+  - 
+- SPS (Revered)
+  - 
+EOV
+
+    if [[ $append = true ]]; then
+        echo -e "$totalContent" >> "$path"
+    else
+        echo -e "$totalContent" > "$path"
+    fi
+
+    success "Created note; opening"
+    code "$path"
+}

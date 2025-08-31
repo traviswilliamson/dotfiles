@@ -63,20 +63,29 @@ fi
 
 if ! dpkg -l brave-browser 2> /dev/null | grep ii -q; then
     anyinstalled=true
+    info "Installing Brave"
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg || error "Failed to download brave public key"
     sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources || error "Failed to download brave package source"
     sudo apt update
-    sudo apt install brave-browser || error "Failed to instal brave"
+    sudo apt install brave-browser || error "Failed to install brave"
 fi
 
 if ! hash nvim &> /dev/null; then
     anyinstalled=true
+    info "Installing Neovim"
     sudo apt-get install neovim || error "Failed to install neovim"
 fi
 
 if ! dpkg -l gnome-shell-extension-auto-move-windows 2> /dev/null | grep ii -q; then
     anyinstalled=true
+    info "Installing gnome shell extension: auto-move windows"
     sudo apt install gnome-shell-extension-auto-move-windows
+fi
+
+if ! hash python3 &> /dev/null; then
+    anyinstalled=true
+    info "Installing python"
+    sudo apt-get install python3 || error "Failed to install python"
 fi
 
 if [ $anyinstalled = false ]; then
