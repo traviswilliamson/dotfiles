@@ -40,7 +40,6 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 - A whole lot of StackOverflow posts
 
 # General TODO
-1. Merge all branches together
 1. OS specific configs
 
 # .bashrc TODO
