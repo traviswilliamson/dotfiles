@@ -6,6 +6,7 @@
 	editor = code --wait
 	excludesFile = '~/.gitignore_global'
 	symlinks = true
+	filemode = false
 [diff]
 	tool = vscode
 	algorithm = histogram
