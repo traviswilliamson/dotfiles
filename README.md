@@ -41,17 +41,11 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 
 # General TODO
 1. Merge all branches together
-1. Make setting up the repo in ##setup a script run from curl
-  1. [Make sure](https://askubuntu.com/a/409031) to `chmod +x` the other setup/install scripts. Maybe in `bootstrap.sh`?
 1. OS specific configs
 
 # .bashrc TODO
-
 - OS specific stuff
 - Environment specific stuff, like rancher
 
 # bootstrap TODO
-- Ask for environment
 - Build a list of errors to show at the end of the script, like how compilers show errors
-- repos
-  - common & environment specific
