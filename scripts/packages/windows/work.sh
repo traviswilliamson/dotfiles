@@ -5,16 +5,16 @@ source $HOME/scripts/colors.source
 anyinstalled=false
 packagelist=$(winget.exe list)
 
-if ! echo "$packagelist" | grep -q Microsoft.VisualStudio.2022.Professional; then
+if ! echo "$packagelist" | grep -q -F Microsoft.VisualStudio.2022; then
     anyinstalled=true
     info "Installing Visual Studio"
     winget install --id Microsoft.VisualStudio.2022.Professional -e --accept-package-agreements --accept-source-agreements || error "Failed to install Visual Studio"
 fi
 
-if ! echo "$packagelist" | grep -q suse.RancherDesktop; then
+if ! echo "$packagelist" | grep -q -F SUSE.RancherDesktop; then
     anyinstalled=true
     info "Installing Rancher"
-    winget install --id suse.RancherDesktop -e --accept-package-agreements --accept-source-agreements || error "Failed to install Rancher"
+    winget install --id SUSE.RancherDesktop -e --accept-package-agreements --accept-source-agreements || error "Failed to install Rancher"
 fi
 
 if ! echo "$packagelist" | grep -q Bruno.Bruno; then
