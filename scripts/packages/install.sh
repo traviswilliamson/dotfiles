@@ -12,6 +12,6 @@ info "Installing common $_os packages"
 bash "./$_os/common.sh"
 info "Installing $_env $_os packages"
 bash "./$_os/$_env.sh"
-success "Finished installing packages\n"
+success "Finished installing packages"
 
 popd > /dev/null

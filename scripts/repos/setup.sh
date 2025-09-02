@@ -34,8 +34,8 @@ else
     wait
 
     if [[ $anycloned == true ]]; then
-        success "All repos cloned\n"
+        success "All repos cloned"
     else
-        success "No repos to clone\n"
+        success "No repos to clone"
     fi
 fi

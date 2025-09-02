@@ -37,13 +37,6 @@ initErrorLogs
 DIR=$(dirname "$0")
 pushd "$DIR" > /dev/null
 
-#TODO: Configure windows, get starting point from gist
-# Run that as a powershell script
-# Make sure to enable stuff for rancher
-# reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
-
-# Something for windows terminal?
-
 question "What kind of use is this machine for?"
 select _env in "Work" "Personal"; do
     _env=${_env:-$REPLY}
@@ -66,11 +59,11 @@ find * -name "*.sh" | while read script; do
     fi
 done
 
-info "Running ./packages/install.sh\n"
+info "\nRunning ./packages/install.sh"
 ./packages/install.sh $_env
 
 find * -name "setup.sh" | while read setup; do
-    info "Running ./$setup"
+    info "\nRunning ./$setup"
     ./$setup $_env
 done
 

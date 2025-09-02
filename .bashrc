@@ -48,9 +48,18 @@ fi
 
 # Exports
 export LESS="$LESS -R --no-init --quit-if-one-screen"
-export PATH="/c/Program Files/Neovim/bin:$PATH"
-export PATH="$PATH:~/local/bin"
 export NVM_DIR="$HOME/.nvm"
+source ~/scripts/os.source
+case $(os) in
+("linux")
+    export PATH="$PATH:~/local/bin"
+    ;;
+("macos"*)
+    ;;
+("windows")
+    export PATH="/c/Program Files/Neovim/bin:$PATH"
+    ;;
+esac
 
 # Plugins
 eval "$(zoxide init bash)"
