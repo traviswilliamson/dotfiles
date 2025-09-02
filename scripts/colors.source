@@ -31,3 +31,23 @@ success() {
 question() {
     colorYellow "$1"
 }
+
+initErrorLogs() {
+    touch ~/temperrorlog.log
+}
+
+logerror() {
+    printf "$1\n" >> ~/temperrorlog.log
+    error "$1"
+}
+
+clearErrorLogs() {
+    rm ~/temperrorlog.log
+}
+
+printErrorLogs() {
+    if [ -s ~/temperrorlog.log ]; then
+        colorRed "Errors:"
+        cat ~/temperrorlog.log
+    fi
+}

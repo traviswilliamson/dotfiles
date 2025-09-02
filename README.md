@@ -45,6 +45,3 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 # .bashrc TODO
 - OS specific stuff
 - Environment specific stuff, like rancher
-
-# bootstrap TODO
-- Build a list of errors to show at the end of the script, like how compilers show errors

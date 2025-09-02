@@ -32,6 +32,8 @@ case $(os) in
         ;;
 esac
 
+initErrorLogs
+
 DIR=$(dirname "$0")
 pushd "$DIR" > /dev/null
 
@@ -71,5 +73,8 @@ find * -name "setup.sh" | while read setup; do
     info "Running ./$setup"
     ./$setup $_env
 done
+
+printErrorLogs
+clearErrorLogs
 
 popd > /dev/null
