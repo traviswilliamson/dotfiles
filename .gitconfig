@@ -27,7 +27,6 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
 	helper = manager
-	helper = /home/twilliamson/.dotnet/tools/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [init]

@@ -1,4 +1,5 @@
 [core]
 	autocrlf = input
 [credential]
+	helper = /home/twilliamson/.dotnet/tools/git-credential-manager
 	credentialStore = secretservice
