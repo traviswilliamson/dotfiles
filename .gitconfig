@@ -25,6 +25,7 @@
 [alias]
     continue = "-c core.editor=true rebase --continue"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	fpush = push --force-with-lease
 [credential]
 	helper = manager
 [credential "https://dev.azure.com"]
@@ -60,6 +61,8 @@
 	sort = version:refname
 [help]
 	autocorrect = prompt
+[rebase]
+	updateRefs = true
 [rerere]
 	autoSquash = true
 	autoStash = true
