@@ -91,9 +91,6 @@ EOV
     if [[ $longDay == Wednesday ]]; then
         read -r -d '' wednesday << EOV
 \n- [ ] AvEs
-  - [ ]
-  - [ ] To JD
-  - [ ] To Renee
 EOV
     else
         local wednesday=''
@@ -118,6 +115,7 @@ EOV
     read -r -d '' totalContent << EOV
 # ${longDay}, ${longMonth} ${shortDay}, ${longYear}
 - [ ] Create TODO list for the day${monday}${wednesday}
+- [ ] Script of the day
 - [ ] Standup${thursday}
 ${previousContent}
 - DD (Great)
@@ -125,6 +123,8 @@ ${previousContent}
 - MS (Alacritous)
   - 
 - SPS (Revered)
+  - 
+- AH
   - 
 EOV
 
