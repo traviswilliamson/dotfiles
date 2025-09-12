@@ -88,6 +88,14 @@ EOV
         local monday=''
     fi
 
+    if [[ $longDay == Tuesday ]]; then
+        read -r -d '' tuesday << EOV
+\n- [ ] Sustaining tickets demo
+EOV
+    else
+        local tuesday=''
+    fi
+
     if [[ $longDay == Wednesday ]]; then
         read -r -d '' wednesday << EOV
 \n- [ ] AvEs
@@ -114,9 +122,9 @@ EOV
 
     read -r -d '' totalContent << EOV
 # ${longDay}, ${longMonth} ${shortDay}, ${longYear}
-- [ ] Create TODO list for the day${monday}${wednesday}
-- [ ] Script of the day
-- [ ] Standup${thursday}
+- [ ] Create TODO list for the day
+- [ ] Script of the day${monday}${tuesday}${wednesday}${thursday}
+- [ ] Standup
 ${previousContent}
 - DD (Great)
   - 
