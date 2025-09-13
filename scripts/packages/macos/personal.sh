@@ -4,7 +4,7 @@ source $HOME/scripts/colors.source
 
 anyinstalled=false
 
-logerror"Why did you buy a mac?"
+logerror "Why did you buy a mac?"
 
 # TODO
 

@@ -4,8 +4,6 @@ source $HOME/scripts/colors.source
 
 anyinstalled=false
 
-# TODO
-
 if ! xcode-select --print-path &>/dev/null; then
     anyinstalled=false
     success "Installing XCode command line tools"
@@ -25,6 +23,7 @@ if ! brew list python &> /dev/null; then
 fi
 
 # TODO: Can you check for taps?
+# brew tap-info microsoft/git? What's the output?
 tap microsoft/git
 
 if ! brew list git-credential-manager-core &> /dev/null; then
