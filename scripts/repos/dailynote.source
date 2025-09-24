@@ -122,8 +122,7 @@ EOV
 
     read -r -d '' totalContent << EOV
 # ${longDay}, ${longMonth} ${shortDay}, ${longYear}
-- [ ] Create TODO list for the day
-- [ ] Script of the day${monday}${tuesday}${wednesday}${thursday}
+- [ ] Create TODO list for the day${monday}${tuesday}${wednesday}${thursday}
 - [ ] Standup
 ${previousContent}
 - DD (Great)
