@@ -14,9 +14,9 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 
 # Prompt
-source $HOME/.gitprompt.source
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
+source $HOME/.gitprompt.source`
+GIT_PS1_SHOWDIRTYSTATE=0
+GIT_PS1_SHOWSTASHSTATE=0`
 GIT_PS1_SHOWUPSTREAM=verbose
 GIT_PS1_SHOWCONFLICTSTATE=yes
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")';
@@ -33,7 +33,7 @@ xterm*|rxvt*)
 esac
 
 # Completions
-source $HOME/.git-completion.source
+# source $HOME/.git-completion.source
 
 # Color aliases
 if [ -x /usr/bin/dircolors ]; then
