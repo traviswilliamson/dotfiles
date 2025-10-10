@@ -1,3 +1,0 @@
-[submodule "scripts/gitstatus"]
-	path = scripts/gitstatus
-	url = https://github.com/romkatv/gitstatus

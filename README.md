@@ -38,3 +38,4 @@ All scripts specified in `scripts/sourceall.sh` will be sourced by `.bash_profil
 - [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)'s configuration options for macOS
 - [Rosco Kalis](https://github.com/rkalis/dotfiles)'s bootstrap scripts
 - A whole lot of StackOverflow posts
+- [Roman Perepelitsa](https://github.com/romkatv/gitstatus)'s gitstatus for interactive shells
