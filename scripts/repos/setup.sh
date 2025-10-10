@@ -7,7 +7,7 @@ source $HOME/scripts/repos/repos.source
 
 _env=$1
 if [[ ! "$_env" ]]; then
-    logerror"Environment argument not passed in"
+    logerror "Environment argument not passed in"
 else
     info "Cloning repos"
     
@@ -15,7 +15,7 @@ else
     COMMENT=\#*
     repo_path=$(realpath ~/repos)
     if [[ ! -d "$repo_path/$_env" ]]; then
-        mkdir -p "$repo_path/$_env" || logerror"Could not create repos folder"
+        mkdir -p "$repo_path/$_env" || logerror "Could not create repos folder"
     fi
 
     while read repo; do

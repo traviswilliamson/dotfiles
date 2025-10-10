@@ -7,7 +7,7 @@ anyinstalled=false
 if ! brew list slack &> /dev/null; then
     anyinstalled=false
     info "Installing Slack"
-    brew install --cast slack || logerror"Failed to install Slack"
+    brew install --cast slack || logerror "Failed to install Slack"
 fi
 
 if [[ $anyinstalled == false ]]; then
