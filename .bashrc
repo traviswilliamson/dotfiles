@@ -55,6 +55,7 @@ case $(os) in
     ;;
 ("windows")
     export PATH="/c/Program Files/Neovim/bin:$PATH"
+    export PATH="/c/ProgramData/chocolatey/lib/Elixir/tools/bin:$PATH"
     ;;
 esac
 

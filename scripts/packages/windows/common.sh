@@ -101,6 +101,12 @@ if ! echo "$packagelist" | grep -q Python.Python.3.11; then
     winget install --id Python.Python.3.11 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install python"
 fi
 
+if ! choco list --limit-output -e filezilla &> /dev/null; then
+    anyinstalled=true
+    info "Installing elixir"
+    choco install -y elixir || logerror "Failed to install elixir"
+fi
+
 if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi

@@ -50,6 +50,8 @@ if ! brew list dotnet-sdk &> /dev/null; then
     brew install --cask dotnet-sdk || logerror "Failed to install .net SDK"
 fi
 
+# TODO: Elixir?
+
 if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi
