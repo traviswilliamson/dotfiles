@@ -41,13 +41,14 @@ if ! echo "$packagelist" | grep -q Microsoft.AzureCLI; then
     winget install --id Microsoft.AzureCLI -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Azure CLI"
 fi
 
-if ! choco list --limit-output -e beyondcompare &> /dev/null; then
-    anyinstalled=true
-    info "Installing Beyond Compare"
-    choco install -y beyondcompare --version=4.4.7.20240301 || logerror "Failed to install Beyond Compare"
-fi
+# TODO: Fix, use winget
+# if ! choco list --limit-output -e beyondcompare | grep -q -F beyondcompare; then
+#     anyinstalled=true
+#     info "Installing Beyond Compare"
+#     choco install -y beyondcompare --version=4.4.7.20240301 || logerror "Failed to install Beyond Compare"
+# fi
 
-if ! choco list --limit-output -e filezilla &> /dev/null; then
+if ! choco list --limit-output -e filezilla | grep -q -F filezilla; then
     anyinstalled=true
     info "Installing FileZilla"
     choco install -y filezilla || logerror "Failed to install FileZilla"

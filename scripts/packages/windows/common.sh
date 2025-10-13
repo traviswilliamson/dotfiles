@@ -25,7 +25,7 @@ if ! echo "$packagelist" | grep -q WhatsApp; then
     winget install WhatsApp --source winget --accept-package-agreements --accept-source-agreements || logerror "Failed to install WhatsApp"
 fi
 
-if ! choco list --limit-output -e signal &> /dev/null; then
+if ! choco list --limit-output -e signal | grep -q -F signal; then
     anyinstalled=true
     info "Installing Signal"
     choco install -y signal || logerror "Failed to install Signal"
@@ -63,7 +63,8 @@ if ! echo "$packagelist" | grep -q Microsoft.WindowsTerminal; then
     winget install --id Microsoft.WindowsTerminal -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Windows Terminal"
 fi
 
-if ! choco list --limit-output -e firacode &> /dev/null; then
+# TODO - fix check
+if ! choco list --limit-output -e firacode | grep -q -F firacode; then
     anyinstalled=true
     info "Installing Firacode"
     choco install -y firacode || logerror "Failed to install Firacode"
@@ -101,7 +102,7 @@ if ! echo "$packagelist" | grep -q Python.Python.3.11; then
     winget install --id Python.Python.3.11 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install python"
 fi
 
-if ! choco list --limit-output -e filezilla &> /dev/null; then
+if ! choco list --limit-output -e elixir | grep -q -F elixir; then
     anyinstalled=true
     info "Installing elixir"
     choco install -y elixir || logerror "Failed to install elixir"

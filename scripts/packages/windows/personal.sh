@@ -5,12 +5,6 @@ source $HOME/scripts/colors.source
 anyinstalled=false
 packagelist=$(winget.exe list)
 
-if ! choco list --limit-output -e signal &> /dev/null; then
-    anyinstalled=true
-    info "Installing Signal"
-    choco install -y signal || logerror "Failed to install Signal"
-fi
-
 if ! echo "$packagelist" | grep -q Discord.Discord; then
     anyinstalled=true
     info "Installing Discord"
@@ -41,7 +35,7 @@ if ! echo "$packagelist" | grep -q GOG.Galaxy; then
     winget install --id GOG.Galaxy -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install GOG Galaxy"
 fi
 
-if ! choco list --limit-output -e mp3tag &> /dev/null; then
+if ! choco list --limit-output -e mp3tag | grep -q -F mp3tag; then
     anyinstalled=true
     info "Installing mp3tag"
     choco install -y mp3tag || logerror "Failed to install mp3tag"

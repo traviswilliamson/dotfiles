@@ -52,6 +52,7 @@ select _env in "Work" "Personal"; do
     esac
 done
 
+# TODO, check existing flags
 find * -name "*.sh" | while read script; do
     if [[ ! -x "$script" ]] && [[ "$script" != "$(basename $0)" ]] then
         info "Making ./$script executable"
