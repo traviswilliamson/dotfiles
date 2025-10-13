@@ -1,0 +1,64 @@
+{
+    "workbench.sideBar.location": "right",
+    "C_Cpp.default.compilerPath": "cl.exe",
+    "workbench.colorTheme": "Default Dark+",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": "'cv01', 'cv02', 'ss05', 'ss03', 'cv16', 'ss02', 'cv24', 'ss07'",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.cursorStyleInactive": "line",
+    "terminal.integrated.cursorBlinking": true,
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "workbench.preferredDarkColorTheme": "Default Dark+",
+    "window.autoDetectColorScheme": true,
+    "editor.wordWrap": "on",
+    "markdown.extension.orderedList.marker": "one",
+    "editor.multiDocumentOccurrencesHighlight": true,
+    "git.openRepositoryInParentFolders": "always",
+    "git.autofetch": true,
+    "workbench.tree.enableStickyScroll": true,
+    "editor.largeFileOptimizations": false,
+    "bicep.enableSurveys": false,
+    "terminal.integrated.automationProfile.windows": {
+        
+        "path": "C:\\Windows\\System32\\cmd.exe"
+    },
+    "workbench.startupEditor": "none",
+    "terminal.integrated.middleClickBehavior": "paste",
+    "editor.cursorBlinking": "smooth",
+    "workbench.activityBar.location": "top",
+    "window.commandCenter": false,
+    "editor.renderWhitespace": "none",
+    "terminal.integrated.fontLigatures": true,
+    "notebook.lineNumbers": "on",
+    "terminal.integrated.suggest.enabled": true,
+    "files.associations": {
+        "*.source": "shellscript"
+    },
+    "search.showLineNumbers": true,
+    "[markdown]": {
+        "editor.suggest.selectionMode": "never"
+    },
+    "editor.acceptSuggestionOnEnter": "off",
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "C_Cpp.copilotHover": "disabled",
+    "chat.agent.enabled": false,
+    "remote.SSH.experimental.chat": false,
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "chat.commandCenter.enabled": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+}
