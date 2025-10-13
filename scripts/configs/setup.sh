@@ -33,6 +33,17 @@ mkdir -p "$vscodepath"
 ln -Pf "$HOME/scripts/configs/vscode/keybindings.json" "$vscodepath/keybindings.json"
 ln -Pf "$HOME/scripts/configs/vscode/settings.json" "$vscodepath/settings.json"
 
-# Something for windows terminal profiles?
+# TODO: VS2026 settings
+
+case $(os) in
+    "linux")
+        ;;
+    "windows")
+        info "Be advised, PowerToys settings can only be restored from within the application"
+        info "Be advised, Windows Terminal settings can only be restored from within the application"
+        ;;
+    "macos")
+        ;;
+esac
 
 popd > /dev/null

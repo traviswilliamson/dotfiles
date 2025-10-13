@@ -1,0 +1,199 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+    "firstWindowPreference": "defaultProfile",
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "startingDirectory": "."
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "colorScheme": 
+                {
+                    "dark": "Campbell",
+                    "light": "One Half Light"
+                },
+                "font": 
+                {
+                    "cellHeight": "1.2",
+                    "face": "Cascadia Code",
+                    "size": 12,
+                    "weight": "normal"
+                },
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git",
+                "startingDirectory": "~"
+            },
+            {
+                "colorScheme": 
+                {
+                    "dark": "Campbell",
+                    "light": "One Half Light"
+                },
+                "commandline": "C:/Program Files/Git/bin/bash.exe -i -l",
+                "elevate": true,
+                "font": 
+                {
+                    "cellHeight": "1.2",
+                    "face": "Cascadia Code",
+                    "size": 12,
+                    "weight": "normal"
+                },
+                "guid": "{b95d7e1f-86c1-47f8-a3ff-407aa5da4b93}",
+                "hidden": false,
+                "icon": "C:/Program Files/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Git Bash (Admin)"
+            },
+            {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
+                "colorScheme": "Campbell",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "cursorShape": "bar",
+                "elevate": true,
+                "font": 
+                {
+                    "face": "Cascadia Mono",
+                    "size": 12
+                },
+                "guid": "{6c126a57-7434-45a8-8ec3-6c844b492f6a}",
+                "hidden": false,
+                "historySize": 9001,
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+                "name": "Windows PowerShell (Admin)",
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "useAcrylic": false
+            },
+            {
+                "guid": "{57331172-d80b-5f1f-94ed-cdd8815f11fe}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{83f13a95-2fbe-51af-8b06-cdb420eca0a1}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{94f655e1-711c-5e08-82db-d49db88ed65f}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 21",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{5f2672e1-23db-5940-997a-df89e3f6df46}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 21",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c0daf505-b492-5a65-ad4b-62cd0091c1dc}",
+                "hidden": false,
+                "name": "rancher-desktop",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{2fc67a96-2fe5-5dd3-83e4-85e1cdf2e6b4}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 18 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{b08764a2-c413-59f5-a9af-86bb6d41978d}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 18 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            }
+        ]
+    },
+    "schemes": [],
+    "showTabsInTitlebar": true,
+    "tabWidthMode": "equal",
+    "theme": "system",
+    "themes": [],
+    "useAcrylicInTabRow": true,
+    "windowingBehavior": "useNew"
+}
