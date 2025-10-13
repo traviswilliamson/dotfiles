@@ -19,6 +19,3 @@ powershell "Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersi
 
 #--- Enable developer mode on the system ---
 powershell "reg add \"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock\" /t REG_DWORD /f /v \"AllowDevelopmentWithoutDevLicense\" /d \"1\"" || logerror "Failed to set devloper mode"
-
-#--- Turn off Windows Web Search ---
-powershell "reg add \"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer\" /t REG_DWORD /f /v \"DisableSearchBoxSuggestions\" /d \"1\"" || logerror "Failed to turn off Windows Web Search"
