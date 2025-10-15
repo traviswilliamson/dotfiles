@@ -38,8 +38,8 @@ gohome() {
 }
 
 killorig() {
-    for f in $(git ls-files --others --exclude-standard | grep .*\.orig); do
-        if rm $f; then
+    for f in "$(git ls-files --others --exclude-standard | grep .*\.orig)"; do
+        if rm "$f"; then
             success "Deleted $f"
         else
             error "Failed to delete $f"
