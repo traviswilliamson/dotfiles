@@ -14,9 +14,7 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 
 # Prompt
-source ~/scripts/gitstatus/gitstatus.prompt.sh
-# Old terminals like Visual Studio don't render unicode \uXXXX UTF16 correctly, use the \xXX\xXX UTF8 notation
-PS1=$'\[\e]0;\u@\h:\w\a\]\[\e[38;5;34m\]\u@\h\[\e[0m\]:\[\e[93m\]\w\[\e[38;5;39m\] ${GITSTATUS_PROMPT}\[\e[0m\]\n\xE2\x9E\xA4  '
+PS1=$'\[\e]0;\u@\h:\w\a\]\[\e[38;5;34m\]\u@\h\[\e[0m\]:\[\e[93m\]\w\[\e[38;5;39m\]\[\e[0m\]$(if $(git rev-parse --is-inside-work-tree 2> /dev/null ); then echo -e " \033[0;36m($(git branch --show-current))\033[0m"; fi)\n\xE2\x9E\xA4  '
 
 case "$TERM" in
 xterm*|rxvt*)
