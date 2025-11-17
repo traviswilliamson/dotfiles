@@ -38,7 +38,7 @@ gohome() {
 }
 
 killorig() {
-    for f in "$(git ls-files --others --exclude-standard | grep .*\.orig)"; do
+    git ls-files --others --exclude-standard | grep .*\.orig | while read -r f; do
         if rm "$f"; then
             success "Deleted $f"
         else
