@@ -88,9 +88,9 @@ EOV
         local monday=''
     fi
 
-    if [[ $longDay == Wednesday ]]; then
-        read -r -d '' wednesday << EOV
-\n- [ ] AvEs
+    if [[ $longDay == Tuesday ]]; then
+        read -r -d '' tuesday << EOV
+\n- [ ] AvEs w/ Renee
 EOV
     else
         local wednesday=''
@@ -117,14 +117,6 @@ EOV
 - [ ] Create TODO list for the day${monday}${wednesday}${thursday}
 - [ ] Standup
 ${previousContent}
-- SPS (Revered)
-  - 
-- AH
-  - 
-- AL
-  - 
-- EC
-  - 
 EOV
 
     if [[ $append = true ]]; then
