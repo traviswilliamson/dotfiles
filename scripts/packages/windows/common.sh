@@ -44,6 +44,12 @@ if ! echo "$packagelist" | grep -q 7zip.7zip; then
     winget install --id 7zip.7zip -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install 7zip"
 fi
 
+if ! echo "$packagelist" | grep -q jqlang.jq; then
+    anyinstalled=true
+    info "Installing jq"
+    winget install --id jqlang.jq -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install jq"
+fi
+
 # Dev tools
 if ! echo "$packagelist" | grep -q Microsoft.VisualStudioCode; then
     anyinstalled=true

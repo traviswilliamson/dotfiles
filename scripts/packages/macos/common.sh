@@ -50,6 +50,12 @@ if ! brew list dotnet-sdk &> /dev/null; then
     brew install --cask dotnet-sdk || logerror "Failed to install .net SDK"
 fi
 
+if ! brew list jq &> /dev/null; then
+    anyinstalled=false
+    info "Installing jq"
+    brew install jq || logerror "Failed to install jq"
+fi
+
 # TODO: Elixir?
 
 if [[ $anyinstalled == false ]]; then

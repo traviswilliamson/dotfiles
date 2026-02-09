@@ -17,7 +17,7 @@ os() {
     esac
 }
 
-clipboardpaste() {
+clippaste() {
     case $(os) in
     ("linux")
         local clipboard="$(xclip -selection clipboard -o)"
@@ -30,4 +30,18 @@ clipboardpaste() {
         ;;
     esac
     echo "$clipboard"
+}
+
+clipcopy() {
+    case $(os) in
+    ("linux")
+        xclip -selection c
+        ;;
+    ("macos"*)
+        pbcopy
+        ;;
+    ("windows")
+        clip
+        ;;
+    esac
 }

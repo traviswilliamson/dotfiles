@@ -88,6 +88,12 @@ if ! hash python3 &> /dev/null; then
     sudo apt-get install python3 || logerror "Failed to install python"
 fi
 
+if ! hash jq &> /dev/null; then
+    anyinstalled=true
+    info "Installing jq"
+    sudo apt-get install jq || logerror "Failed to install jq"
+fi
+
 # TODO: Elixir?
 
 if [[ $anyinstalled == false ]]; then

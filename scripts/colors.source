@@ -22,6 +22,8 @@ info() {
 
 error() {
     >&2 colorRed "$1"
+    read line func file < <(caller 0)
+    colorRed "From function: ${func} @ ${file} ${line}"
 }
 
 success() {
@@ -30,6 +32,10 @@ success() {
 
 question() {
     colorYellow "$1"
+}
+
+beep() {
+    printf \\a
 }
 
 initErrorLogs() {
