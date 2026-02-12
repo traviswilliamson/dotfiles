@@ -20,16 +20,15 @@ os() {
 clippaste() {
     case $(os) in
     ("linux")
-        local clipboard="$(xclip -selection clipboard -o)"
+        echo "$(xclip -selection clipboard -o)"
         ;;
     ("macos"*)
-        local clipboard="$(pbpaste)"
+        echo "$(pbpaste)"
         ;;
     ("windows")
-        local clipboard="$(cat /dev/clipboard)"
+        echo "$(cat /dev/clipboard)"
         ;;
     esac
-    echo "$clipboard"
 }
 
 clipcopy() {
