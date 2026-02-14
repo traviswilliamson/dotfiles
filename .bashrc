@@ -48,6 +48,8 @@ source ~/scripts/os.source
 case $(os) in
 ("linux")
     export PATH="$PATH:~/local/bin"
+    alias python='python3'
+    alias pip='pip3'
     ;;
 ("macos"*)
     ;;

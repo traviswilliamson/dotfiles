@@ -88,6 +88,12 @@ if ! hash python3 &> /dev/null; then
     sudo apt-get install python3 || logerror "Failed to install python"
 fi
 
+if ! hash pip3 &> /dev/null; then
+    anyinstalled=true
+    info "Installing pip"
+    sudo apt-get install python3-pip || logerror "Failed to install pip"
+fi
+
 if ! hash jq &> /dev/null; then
     anyinstalled=true
     info "Installing jq"
