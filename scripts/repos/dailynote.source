@@ -98,7 +98,8 @@ EOV
     
     if [[ $longDay == Thursday ]]; then
         read -r -d '' thursday << EOV
-\n- [ ] Team leads
+\n- [ ] Fill out scorecard
+- [ ] Team leads
 - [ ] Scorecard
 EOV
     else
@@ -114,8 +115,9 @@ EOV
 
     read -r -d '' totalContent << EOV
 # ${longDay}, ${longMonth} ${shortDay}, ${longYear}
-- [ ] Create TODO list for the day${monday}${wednesday}${thursday}
-- [ ] Standup
+- [ ] Create TODO list for the day
+- [ ] Send updates to team
+- [ ] Standup${monday}${wednesday}${thursday}
 ${previousContent}
 EOV
 
