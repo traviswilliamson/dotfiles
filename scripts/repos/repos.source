@@ -47,6 +47,10 @@ killorig() {
     done
 }
 
+killcandidates() {
+    git branch -a -l */Candidate* | sed 's/remotes\/origin\///' | xargs git push origin -d
+}
+
 dailycommit() {
     info "Daily commit: Add, commit, push"
     git add : && success Added || error "Failed to add"
