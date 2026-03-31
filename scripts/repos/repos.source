@@ -32,9 +32,9 @@ repoexists() {
 
 gohome() { 
     local gohome_temp_branch=$(git branch --show-current)
-    git switch ${1-master}
-    git pull
-    git branch -D "${gohome_temp_branch}"
+    git switch ${1-master} && success "Switched to ${1-master}" || error "Failed to switch to ${1-master}"
+    git pull && success "Pulled" || error "Failed to pull"
+    git branch -D "${gohome_temp_branch}" && success "Deleted ${gohome_temp_branch}" || error "Failed to delete ${gohome_temp_branch}"
 }
 
 killorig() {
