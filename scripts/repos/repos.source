@@ -25,7 +25,7 @@ forrepos() {
 repoexists() {
     local repo_path=$(find ~/repos -mindepth 2 -maxdepth 2 -type d -iname "$1" | head -n 1)
     if [[ ! "$repo_path" ]]; then
-        error "Repo $1 not found"
+        warning "Repo $1 not found"
         return 1
     fi
 }

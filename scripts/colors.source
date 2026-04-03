@@ -16,6 +16,10 @@ colorYellow() {
     echo -e "\033[0;33m$1\033[0m"
 }
 
+colorPurple() {
+    echo -e "\033[0;35m$1\033[0m"
+}
+
 info() {
     colorCyan "$1"
 }
@@ -24,6 +28,10 @@ error() {
     >&2 colorRed "$1"
     read line func file < <(caller 0)
     colorRed "From function: ${func} @ ${file} ${line}"
+}
+
+warning() {
+    colorPurple "$1"
 }
 
 success() {
