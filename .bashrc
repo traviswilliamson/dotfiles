@@ -30,7 +30,7 @@ esac
 
 # Exports
 export LESS="$LESS -R --no-init --quit-if-one-screen"
-export NVM_DIR="$HOME/.nvm"
+export FNM_DIR="$HOME/.fnm"
 source ~/scripts/os.source
 case $(os) in
 ("linux")
@@ -46,8 +46,8 @@ esac
 
 # Plugins
 eval "$(zoxide init bash)"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell bash)" # Load fnm
+eval "$(fnm completions --shell bash)" # Load fnm completions
 
 # Other scripts
 source ~/scripts/sourceall.sh

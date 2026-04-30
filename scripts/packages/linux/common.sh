@@ -98,6 +98,12 @@ fi
 
 # TODO: Elixir?
 
+if ! hash fnm --version &> /dev/null; then
+    anyinstalled=true
+    info "Installing fnm"
+    curl -fsSL https://fnm.vercel.app/install | bash || logerror "Failed to install fnm"
+fi
+
 if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi

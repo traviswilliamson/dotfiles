@@ -114,6 +114,12 @@ if ! choco list --limit-output -e elixir | grep -q -F elixir; then
     choco install -y elixir || logerror "Failed to install elixir"
 fi
 
+if ! echo "$packagelist" | grep -q Schniz.fnm; then
+    anyinstalled=true
+    info "Installing fnm"
+    winget install --id Schniz.fnm -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install fnm"
+fi
+
 if [[ $anyinstalled == false ]]; then
     success "All common packages already installed"
 fi
