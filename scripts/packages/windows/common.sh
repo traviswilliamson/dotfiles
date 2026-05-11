@@ -102,10 +102,10 @@ if ! echo "$packagelist" | grep -q Microsoft.DotNet.SDK.8; then
     winget install --id Microsoft.DotNet.SDK.8 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install .net 8 SDK"
 fi
 
-if ! echo "$packagelist" | grep -q Python.Python.3.11; then
+if ! echo "$packagelist" | grep -q Python.Python.3.14; then
     anyinstalled=true
     info "Installing python"
-    winget install --id Python.Python.3.11 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install python"
+    winget install --id Python.Python.3.14 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install python"
 fi
 
 if ! choco list --limit-output -e elixir | grep -q -F elixir; then

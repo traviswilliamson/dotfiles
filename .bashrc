@@ -46,7 +46,7 @@ esac
 
 # Plugins
 eval "$(zoxide init bash)"
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell bash)" # Load fnm
+eval "$(fnm env --use-on-cd --resolve-engines --version-file-strategy=recursive --shell bash)" # Load fnm
 eval "$(fnm completions --shell bash)" # Load fnm completions
 
 # Other scripts
