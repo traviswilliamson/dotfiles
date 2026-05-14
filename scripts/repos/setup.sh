@@ -28,6 +28,8 @@ else
             info "Cloning ${repo##*/} into $_env"
             git clone $repo &
             popd > /dev/null
+        else
+            warning "${repo##*/} already exists"
         fi
     done < "$(realpath "$(dirname "$0")")/$_env.list"
 
