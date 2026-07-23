@@ -48,7 +48,15 @@ killorig() {
 }
 
 killcandidates() {
-    git branch -a -l */Candidate* | sed 's/remotes\/origin\///' | xargs git push origin -d
+    git branch -r -l */candidate* | sed 's/remotes\/origin\///' | xargs git push origin -d
+}
+
+checkmerged() {
+    git branch -r --merged ${1-master} | grep -Ev 'HEAD|origin/(master|main|releases/|Releases/|features/)'
+}
+
+killmerged() {
+    git branch -r --merged ${1-master} | grep -Ev 'HEAD|origin/(master|main|releases/|Releases/|features/)' | sed 's#origin/##' | xargs -n 1 git push origin --delete
 }
 
 dailycommit() {
