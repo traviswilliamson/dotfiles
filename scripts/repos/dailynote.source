@@ -88,9 +88,9 @@ EOV
         local monday=''
     fi
 
-    if [[ $longDay == Tuesday ]]; then
-        read -r -d '' tuesday << EOV
-\n- [ ] AvEs w/ Renee
+    if [[ $longDay == Wednesday ]]; then
+        read -r -d '' wednesday << EOV
+\n- [ ] AvEs to Renee
 EOV
     else
         local wednesday=''
@@ -106,9 +106,9 @@ EOV
         local thursday=''
     fi
 
-    # Grab from previous note
+    # Grab that day from previous note
     if previousPath=$(previousnote); then
-        previousContent=$(sed -r -e '/[[[:space:]]]|# Soon/,/# Development In Progress/!d;/# Development In Progress/q' ${previousPath})
+        previousContent=$(sed -r -e '/[[[:space:]]]|current-thoughts/,$!d' ${previousPath})
     else
         previousContent=""
     fi
