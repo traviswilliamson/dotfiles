@@ -81,29 +81,25 @@ dailynote() {
 
     ## Day specific content
     if [[ $longDay == Monday ]]; then
-        read -r -d '' monday << EOV
+        read -r -d '' daySpecific << EOV
 \n- [ ] Update sprints and hours
+- [ ] Standup
 EOV
-    else
-        local monday=''
-    fi
-
-    if [[ $longDay == Wednesday ]]; then
-        read -r -d '' wednesday << EOV
+    elif [[ $longDay == Wednesday ]]; then
+        read -r -d '' daySpecific << EOV
 \n- [ ] AvEs to Renee
+- [ ] Standup
 EOV
-    else
-        local wednesday=''
-    fi
-    
-    if [[ $longDay == Thursday ]]; then
-        read -r -d '' thursday << EOV
+    elif [[ $longDay == Thursday ]]; then
+        read -r -d '' daySpecific << EOV
 \n- [ ] Fill out scorecard
 - [ ] Team leads
+- [ ] Standup
 - [ ] Scorecard
+- [ ] Sprint planning
 EOV
     else
-        local thursday=''
+        local daySpecific='\n- [ ] Standup'
     fi
 
     # Grab that day from previous note
@@ -116,8 +112,7 @@ EOV
     read -r -d '' totalContent << EOV
 # ${longDay}, ${longMonth} ${shortDay}, ${longYear}
 - [ ] Create TODO list for the day
-- [ ] Send updates to team
-- [ ] Standup${monday}${wednesday}${thursday}
+- [ ] Send updates to team${daySpecific}
 ${previousContent}
 EOV
 
