@@ -123,5 +123,5 @@ EOV
     fi
 
     success "Created note; opening"
-    code "$path"
+    obsidian daily >/dev/null &
 }
