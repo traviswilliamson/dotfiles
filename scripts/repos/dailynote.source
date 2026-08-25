@@ -82,8 +82,14 @@ dailynote() {
     ## Day specific content
     if [[ $longDay == Monday ]]; then
         read -r -d '' daySpecific << EOV
-\n- [ ] Update sprints and hours
+\n- [ ] *GLORY*!
+- [ ] Update sprints and hours
 - [ ] Standup
+EOV
+    elif [[ $longDay == Tuesday ]]; then
+        read -r -d '' daySpecific << EOV
+\n- [ ] Standup
+- [ ] Catch up with Andy
 EOV
     elif [[ $longDay == Wednesday ]]; then
         read -r -d '' daySpecific << EOV
@@ -97,6 +103,7 @@ EOV
 - [ ] Standup
 - [ ] Scorecard
 - [ ] Sprint planning
+- [ ] Catch up with Andy
 EOV
     else
         local daySpecific='\n- [ ] Standup'
@@ -123,5 +130,5 @@ EOV
     fi
 
     success "Created note; opening"
-    obsidian daily >/dev/null &
+    obsidian "obsidian://open?file=${shortYear}-${shortMonth}-${shortDay}" >/dev/null &
 }

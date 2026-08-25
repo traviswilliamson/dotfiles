@@ -30,3 +30,6 @@ alias gs='git status'
 # PowerSession/asciinema
 # TODO: Add to machine setup
 alias asciinema='PowerSession'
+
+# Weather
+alias weather='curl wttr.in/bryan?format="%l:+%C+%t(%f),+%h+%w\n"'

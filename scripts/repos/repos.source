@@ -30,7 +30,7 @@ repoexists() {
     fi
 }
 
-gohome() { 
+gohome() {
     local gohome_temp_branch=$(git branch --show-current)
     git switch ${1-master} && success "Switched to ${1-master}" || error "Failed to switch to ${1-master}"
     git pull && success "Pulled" || error "Failed to pull"
@@ -61,7 +61,9 @@ killmerged() {
 
 dailycommit() {
     info "Daily commit: Add, commit, push"
+    pushd ~/repos/work/notes
     git add : && success Added || error "Failed to add"
     git commit -m "${1:-"Daily commit"}" && success Committed || error "Failed to commit"
     git push && success Pushed || error "Failed to push"
+    popd
 }
