@@ -84,7 +84,9 @@ dailynote() {
         read -r -d '' daySpecific << EOV
 \n- [ ] *GLORY*!
 - [ ] Update sprints and hours
+- [ ] Fill out scorecard
 - [ ] Standup
+- [ ] Scorecard
 EOV
     elif [[ $longDay == Tuesday ]]; then
         read -r -d '' daySpecific << EOV
@@ -98,10 +100,8 @@ EOV
 EOV
     elif [[ $longDay == Thursday ]]; then
         read -r -d '' daySpecific << EOV
-\n- [ ] Fill out scorecard
-- [ ] Team leads
+\n- [ ] Team leads
 - [ ] Standup
-- [ ] Scorecard
 - [ ] Sprint planning
 - [ ] Catch up with Andy
 EOV
