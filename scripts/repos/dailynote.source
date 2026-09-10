@@ -102,7 +102,6 @@ EOV
         read -r -d '' daySpecific << EOV
 \n- [ ] Team leads
 - [ ] Standup
-- [ ] Sprint planning
 - [ ] Catch up with Andy
 EOV
     else
