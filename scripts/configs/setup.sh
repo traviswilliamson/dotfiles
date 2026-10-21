@@ -33,6 +33,13 @@ mkdir -p "$vscodepath"
 ln -Pf "$HOME/scripts/configs/vscode/keybindings.json" "$vscodepath/keybindings.json"
 ln -Pf "$HOME/scripts/configs/vscode/settings.json" "$vscodepath/settings.json"
 
+# Zed
+zedpath="$HOME/.config/zed"
+info "Symlinking Zed settings"
+mkdir -p "$vscodepath"
+ln -Pf "$HOME/scripts/configs/zed/keybindings.json" "$zedpath/keybindings.json"
+ln -Pf "$HOME/scripts/configs/zed/settings.json" "$zedpath/settings.json"
+
 # TODO: VS2026 settings
 
 case $(os) in
