@@ -3,7 +3,7 @@
 	email = travis.m.williamson@gmail.com
 [core]
 	autocrlf = true
-	editor = code --wait
+	editor = zed --wait
 	excludesFile = '~/.gitignore_global'
 	symlinks = true
 	filemode = false

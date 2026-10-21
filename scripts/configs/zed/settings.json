@@ -1,0 +1,78 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "colorize_brackets": true,
+  "ui_font_family": ".ZedSans",
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "hide_hidden": false,
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "terminal": {
+    "font_family": "Fira Code",
+    "shell": {
+      "with_arguments": {
+        "title_override": "Git Bash",
+        "program": "\"C:/Program Files/Git/bin/bash.exe\"",
+        "args": [ "-i", "-l"]
+      }
+    },
+    "cursor_shape": "bar",
+    "blinking": "on"
+  },
+  "agent": {
+    "dock": "left",
+    "enabled": false,
+    "button": false,
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "minimap": {
+    "show": "always"
+  },
+  "cursor_blink": true,
+  "buffer_font_family": "Fira Code",
+  "buffer_font_features": {
+        "calt": true
+  },
+  "file_types": {
+    "shellscript": [
+      "*.source"
+    ]
+  },
+  "show_whitespaces": "none",
+  "soft_wrap": "editor_width",
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}

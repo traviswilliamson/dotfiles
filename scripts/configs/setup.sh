@@ -34,10 +34,21 @@ ln -Pf "$HOME/scripts/configs/vscode/keybindings.json" "$vscodepath/keybindings.
 ln -Pf "$HOME/scripts/configs/vscode/settings.json" "$vscodepath/settings.json"
 
 # Zed
-zedpath="$HOME/.config/zed"
+zedpath=""
+case $(os) in
+    "linux")
+        zedpath="$HOME/.config/zed"
+        ;;
+    "windows")
+        zedpath="$APPDATA/Zed"
+        ;;
+    "macos")
+        zedpath="$HOME/Library/zed"
+        ;;
+esac
 info "Symlinking Zed settings"
-mkdir -p "$vscodepath"
-ln -Pf "$HOME/scripts/configs/zed/keybindings.json" "$zedpath/keybindings.json"
+mkdir -p "$zedpath"
+ln -Pf "$HOME/scripts/configs/zed/keymap.json" "$zedpath/keymap.json"
 ln -Pf "$HOME/scripts/configs/zed/settings.json" "$zedpath/settings.json"
 
 # TODO: VS2026 settings

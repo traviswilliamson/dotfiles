@@ -1,0 +1,227 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-t ctrl-w": "workspace::CloseActiveDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-w": "workspace::CloseActiveDock"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-shift-k ctrl-shift-w": "workspace::CloseInactiveTabsAndPanes"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-alt-shift-w": "workspace::CloseInactiveTabsAndPanes"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-tab": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-tab": [
+        "tab_switcher::Toggle",
+        {
+          "select_last": true
+        }
+      ]
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-alt-c": "editor::SelectAllMatches"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-l": "editor::SelectAllMatches"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-l": "editor::DeleteLine"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-k": "editor::DeleteLine"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-t ctrl-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-alt-m": "editor::SelectAllMatches"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-alt-g": "editor::GoToDefinition"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-alt-k ctrl-alt-g": "editor::GoToDefinitionSplit"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-k f12": "editor::GoToDefinitionSplit"
+    }
+  },
+  {
+    "bindings": {
+      "alt-o": "editor::SwitchSourceHeader"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-down": "editor::DuplicateLineDown"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "alt-shift-down": "editor::DuplicateLineDown"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-up": "editor::DuplicateLineUp"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "alt-shift-up": "editor::DuplicateLineUp"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-shift-down": [
+        "editor::AddSelectionBelow",
+        {
+          "skip_soft_wrap": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-alt-down": [
+        "editor::AddSelectionBelow",
+        {
+          "skip_soft_wrap": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-shift-up": [
+        "editor::AddSelectionAbove",
+        {
+          "skip_soft_wrap": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-alt-up": [
+        "editor::AddSelectionAbove",
+        {
+          "skip_soft_wrap": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-r ctrl-r": "editor::Rename"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "f2": "editor::Rename"
+    }
+  }
+]
