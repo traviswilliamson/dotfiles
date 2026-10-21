@@ -38,10 +38,10 @@ if ! echo "$packagelist" | grep -q Microsoft.PowerToys; then
     winget install --id Microsoft.PowerToys -e --source winget --accept-package-agreements --accept-source-agreements || logerror "Failed to install Powertoys"
 fi
 
-if ! echo "$packagelist" | grep -q 7zip.7zip; then
+if ! echo "$packagelist" | grep -q M2Team.NanaZip; then
     anyinstalled=true
-    info "Installing 7zip"
-    winget install --id 7zip.7zip -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install 7zip"
+    info "Installing M2Team.NanaZip"
+    winget install --id M2Team.NanaZip -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install NanaZip"
 fi
 
 if ! echo "$packagelist" | grep -q jqlang.jq; then
@@ -55,6 +55,12 @@ if ! echo "$packagelist" | grep -q Microsoft.VisualStudioCode; then
     anyinstalled=true
     info "Installing VSCode"
     winget install --id Microsoft.VisualStudioCode -e --source winget --accept-package-agreements --accept-source-agreements || logerror "Failed to install VSCode"
+fi
+
+if ! echo "$packagelist" | grep -q ZedIndustries.Zed; then
+    anyinstalled=true
+    info "Installing Zed"
+    winget install --id ZedIndustries.Zed -e --source winget --accept-package-agreements --accept-source-agreements || logerror "Failed to install Zed"
 fi
 
 if ! echo "$packagelist" | grep -q Neovim.Neovim; then

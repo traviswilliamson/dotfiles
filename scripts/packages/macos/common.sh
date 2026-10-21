@@ -44,6 +44,12 @@ if ! brew list visual-studio-code &> /dev/null; then
     brew install --cask visual-studio-code || logerror "Failed to install VSCode"
 fi
 
+if ! brew list zed &> /dev/null; then
+    anyinstalled=false
+    info "Installing Zed"
+    brew install --cask zed || logerror "Failed to install Zed"
+fi
+
 if ! brew list dotnet-sdk &> /dev/null; then
     anyinstalled=false
     info "Installing .net SDK"

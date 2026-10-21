@@ -55,6 +55,12 @@ if ! hash code &> /dev/null; then
     sudo apt-get install code || logerror "Failed to install VSCode"
 fi
 
+if ! hash zed &> /dev/null; then
+    anyinstalled=true
+    info "Installing Zed"
+    curl -f https://zed.dev/install.sh | sh || logerror "Failed to install Zed"
+fi
+
 if ! fc-list | grep -q firacode; then
     anyinstalled=true
     info "Installing firacode font"
