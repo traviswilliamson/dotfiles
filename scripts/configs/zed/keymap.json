@@ -223,5 +223,29 @@
     "unbind": {
       "f2": "editor::Rename"
     }
+  },
+  {
+    "context": "BufferSearchBar && in_replace > Editor",
+    "bindings": {
+      "alt-a": "search::ReplaceAll"
+    }
+  },
+  {
+    "context": "BufferSearchBar && in_replace > Editor",
+    "unbind": {
+      "ctrl-enter": "search::ReplaceAll"
+    }
+  },
+  {
+    "context": "ProjectSearchBar && in_replace > Editor",
+    "bindings": {
+      "alt-a": "search::ReplaceAll"
+    }
+  },
+  {
+    "context": "ProjectSearchBar && in_replace > Editor",
+    "unbind": {
+      "ctrl-alt-enter": "search::ReplaceAll"
+    }
   }
 ]
