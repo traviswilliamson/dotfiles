@@ -83,7 +83,6 @@ dailynote() {
     if [[ $longDay == Monday ]]; then
         read -r -d '' daySpecific << EOV
 \n- [ ] *GLORY*!
-- [ ] Update sprints and hours
 - [ ] Fill out scorecard
 - [ ] Standup
 - [ ] Scorecard
