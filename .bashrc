@@ -44,6 +44,9 @@ case $(os) in
     export PATH="/c/ProgramData/chocolatey/lib/Elixir/tools/bin:$PATH"
     ;;
 esac
+## vcpkg
+export VCPKG_ROOT=$HOME/repos/personal/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
 
 # Plugins
 eval "$(zoxide init bash)"

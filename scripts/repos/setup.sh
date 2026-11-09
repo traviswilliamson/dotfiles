@@ -10,7 +10,7 @@ if [[ ! "$_env" ]]; then
     logerror "Environment argument not passed in"
 else
     info "Cloning repos"
-    
+
     anycloned=false
     COMMENT=\#*
     repo_path=$(realpath ~/repos)
@@ -40,4 +40,8 @@ else
     else
         success "No repos to clone"
     fi
+
+    # Post install scripts
+    # TODO: Make idempotent, maybe with a .gitignored "has-run" flag file
+    $HOME/repos/personal/vcpkg/bootstrap-vcpkg.sh
 fi
