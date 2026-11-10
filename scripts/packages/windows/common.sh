@@ -12,7 +12,7 @@ if ! echo "$packagelist" | grep -q Chocolatey.Chocolatey; then
     choco upgrade chocolatey || logerror "Failed to upgrade choco"
 fi
 
-if ! echo "$packagelist" | grep -q Brave.Brave; then
+if ! echo "$packagelist" | grep -q Brave; then
     anyinstalled=true
     info "Installing Brave"
     winget install --id Brave.Brave -e --source winget --accept-package-agreements --accept-source-agreements || logerror "Failed to install Brave"
@@ -75,8 +75,7 @@ if ! echo "$packagelist" | grep -q Microsoft.WindowsTerminal; then
     winget install --id Microsoft.WindowsTerminal -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Windows Terminal"
 fi
 
-# TODO - fix check
-if ! choco list --limit-output -e firacode | grep -q -F firacode; then
+if ! choco list --limit-output -e firacode | grep -q -F FiraCode; then
     anyinstalled=true
     info "Installing Firacode"
     choco install -y firacode || logerror "Failed to install Firacode"
@@ -102,13 +101,13 @@ if ! echo "$packagelist" | grep -q OBSProject.OBSStudio; then
 fi
 
 # Languages
-if ! echo "$packagelist" | grep -q Microsoft.DotNet.SDK.8; then
+if ! echo "$packagelist" | grep -q Microsoft.DotNet.SDK.10; then
     anyinstalled=true
-    info "Installing .net 8 SDK"
-    winget install --id Microsoft.DotNet.SDK.8 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install .net 8 SDK"
+    info "Installing .net 10 SDK"
+    winget install --id Microsoft.DotNet.SDK.10 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install .net 8 SDK"
 fi
 
-if ! echo "$packagelist" | grep -q Python.Python.3.14; then
+if ! echo "$packagelist" | grep -q Python.Python; then
     anyinstalled=true
     info "Installing python"
     winget install --id Python.Python.3.14 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install python"

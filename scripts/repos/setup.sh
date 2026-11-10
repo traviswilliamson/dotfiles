@@ -43,5 +43,6 @@ else
 
     # Post install scripts
     # TODO: Make idempotent, maybe with a .gitignored "has-run" flag file
+    # Also make a common set of repos
     $HOME/repos/personal/vcpkg/bootstrap-vcpkg.sh
 fi

@@ -5,10 +5,10 @@ source $HOME/scripts/colors.source
 anyinstalled=false
 packagelist=$(winget.exe list)
 
-if ! echo "$packagelist" | grep -q -F Microsoft.VisualStudio.2022; then
+if ! echo "$packagelist" | grep -q -F Microsoft.VisualStudio.Professional; then
     anyinstalled=true
     info "Installing Visual Studio"
-    winget install --id Microsoft.VisualStudio.2022.Professional -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Visual Studio"
+    winget install --id Microsoft.VisualStudio.Professional -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Visual Studio"
 fi
 
 if ! echo "$packagelist" | grep -q -F SUSE.RancherDesktop; then
@@ -41,12 +41,11 @@ if ! echo "$packagelist" | grep -q Microsoft.AzureCLI; then
     winget install --id Microsoft.AzureCLI -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Azure CLI"
 fi
 
-# TODO: Fix, use winget
-# if ! choco list --limit-output -e beyondcompare | grep -q -F beyondcompare; then
-#     anyinstalled=true
-#     info "Installing Beyond Compare"
-#     choco install -y beyondcompare --version=4.4.7.20240301 || logerror "Failed to install Beyond Compare"
-# fi
+if ! echo "$packagelist" | grep -q -F ScooterSoftware.BeyondCompare.4; then
+    anyinstalled=true
+    info "Installing Beyond Compare"
+    winget install --id ScooterSoftware.BeyondCompare.4 -e --accept-package-agreements --accept-source-agreements || logerror "Failed to install Beyond Compare"
+fi
 
 if ! choco list --limit-output -e filezilla | grep -q -F filezilla; then
     anyinstalled=true
