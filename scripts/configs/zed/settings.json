@@ -75,4 +75,9 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "languages": {
+    "Markdown": {
+      "extend_list_on_newline": false
+    }
+  }
 }
